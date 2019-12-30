@@ -1,7 +1,219 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    color: rgb(255, 255, 255); 
+}
+
+body {
+    margin: 0px;
+}
+/* keeps the border with inner image on the page without side-scrolling */
+
+/* character setup */
+.character {
+    position: absolute;
+    margin-top: -36%;
+    margin-left: 23%;
+    height: 452px;
+    width: 500px;  
+}
+
+/* characters */
+.hero {
+    background: url(../media/character_draft_intro.png);
+}
+
+.merchant {
+    margin-top: -38%;
+    height: 477px;
+    background: url(../media/character-merchant.png);
+}
+
+.hero_happy {
+    background: url(../media/character_draft2_happy.png);
+}
+
+.hero_angry {
+    background: url(../media/character_draft_upset.png);
+}
+
+.farmer {
+    background: url(../media/character-farmer.png);
+}
+
+.traders {
+    background: url(../media/character-traders.png);
+}
+
+.granny_happy {
+    margin-top: -38%;
+    height: 470px;
+    background: url(../media/character-granny_normal.png);
+}
+
+.granny_angry {
+    margin-top: -39%;
+    height: 483px;
+    background: url(../media/character-granny_attack.png);
+}
+
+/* Backgrounds--------------------- */
+
+/* intro  */
+.intro{
+    background: url(../media/rowan-heuvel-xYYBo69fvQE-unsplash.png);
+}
+
+/* Scene One  */
+.grassPath {
+    background: url(../media/george-hiles-obQHIr61imY-unsplash.png);
+}
+
+.noodles {
+    background: url(../media/sheila-joy-ZAjcJ4BGJzQ-unsplash.png);    
+}
+
+.burningBarn {
+    background: url(../media/stephen-radford-hLUTRzcVkqg-unsplash.png);
+}
+
+/* Scene Two  */
+
+.barn {
+    background: url(../media/frances-gunn-QcBAZ7VREHQ-unsplash.png);
+}
+
+.farmlands {
+    background: url(../media/aleksandar-ristov-_6CvR8zY9Vc-unsplash.png); 
+}
+
+.blood {
+    background: url(../media/max-kleinen-2KrNjQaC1wQ-unsplash.png); 
+}
+
+/* Scene Three */
+
+.market {
+    background: url(../media/anne-preble-SAPvKo12dQE-unsplash.png);
+}
+
+/* Scene Four */
+
+.bedroom {
+    background: url(../media/annie-spratt-YROO1hljsIM-unsplash.png);
+}
+
+.kitchen {
+    background: url(../media/annie-spratt-tJ8x4oCQ5jE-unsplash.png);
+}
+
+/* Creator lounge */
+.lounge {
+    background: url(../media/joshua-ness-Vo52cKzOxMY-unsplash.png);
+}
+
+/* For Nighttime  */
+.nighttime {
+    background: url(../media/vincentiu-solomon-ln5drpv_ImI-unsplash.png);
+}
+
+/* Death Scene */
+.tombstone {
+    background: url(../media/samuel-penn-WL9POcMy3cQ-unsplash.png);
+}
+
+/* background setup*/
+
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* For Storyline */
+
+.narration {
+    position: absolute;
+    margin: 24px 20px 0px;
+    font-size: 18px;
+}
+
+/* For Hero Stats */
+ul {
+    margin: 0px;
+    padding: 0px;
+    color: rgb(58, 17, 88);
+}
+
+li {
+    color: rgb(255, 214, 0);
+    list-style-type: none;
+}
+
+.hero_stats {
+    position: absolute;
+    margin-top: 25%;
+    height: 250px;
+    width: 200px;
+    background: rgb(153, 33, 160);
+    border: 8px outset rgb(48, 3, 66);
+} 
+
+.hero_text {
+    margin: 15px 12px 0px;
+    font-size: 23px;
+}
+
+.story_plot {
+    margin-top: 50%;
+    height: 250px;
+    width: 100%;
+    background: rgba(27, 154, 131, 0.85);
+    border: 10px ridge rgb(2, 115, 90);
+}
+
+
+/* For buttons */ 
+button {
+    color: rgb(1, 51, 46);
+}
+
 .storyBtn {
-    display: none;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 6%;
+    height: 54px;
+    width: 88%;
+    background: rgb(6, 193, 152);
+    border: 3px solid rgb(0, 76, 68);
+    border-radius: 20px;
+    font-size: 25px;
 }
 
 .choiceBtn {
-    display: none;
+    position: absolute;
+    margin-top: 15%;
+    height: 54px;
+    width: 45%;
+    background: rgb(6, 193, 152);
+    border: 3px solid rgb(0, 76, 68);
+    border-radius: 20px;
+    font-size: 20px;;
 }
+
+.choiceB {
+    margin-left: 52%;
+}
+
+/* Backgrounds: */
+/*George Hiles*/
+/* Ashley Trethowan */
+/* Anne Preble  */
+/* Vincentiu Solomon */
+/* Rowan Heuvel */
+/* Sheila Joy */
+/* Stephen Radford */
+/* Frances Gunn */
+/* Annie Spratt */
+/* Samuel Penn */
+/* Joshua Ness */
+/* Aleksandar Ristov */

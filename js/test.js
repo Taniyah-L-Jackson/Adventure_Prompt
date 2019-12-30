@@ -1,5 +1,16 @@
+// event.preventDefault();
+
+//Backgrounds
+var BG = document.getElementById('background');
+
+//characters
+var characterBox = document.getElementById('characterBox');
+
 //starts the order of events
-let adventure = 'intro';
+var adventure = 'intro';
+
+//Box for hero stats
+var hero_box = document.getElementById('hero_stats');
 
 //Hero Stats
 var hero_cattle = document.getElementById('hero_cattle');
@@ -14,7 +25,7 @@ const choiceB = document.getElementById('choiceB');
 //Text displayed
 const narrator = document.getElementById('narrator');
 
-//-----------------------------------------------------------------------
+//--------------------------------------------------------------
 //event listeners for buttons //collects user data when clicked
 choiceA.addEventListener('click', choose); 
 choiceB.addEventListener('click', choose);
@@ -26,18 +37,28 @@ story.addEventListener('click', storyline);
 var hero_choice = ''; 
 var coins = 0;
 var food = 0;
-var cattle = 0;
+var cattle = 0; 
+
+hero_box.style.visibility = 'hidden'; //hides box until random is summoned
 
 function storyline() {
 
     //Begin Game
     if (adventure == 'intro') {
 
-        //Button track
-        story.classList.remove('storyBtn') //remove 'hide' class
-
         adventure = 'begin'; //leads to next scenario
-        narrator.innerText = "Click 'Start' to Begin";
+
+        //Button track
+        story.style.visibility = 'visible'; //show 
+        choiceA.style.visibility = 'hidden'; //hide
+        choiceB.style.visibility = 'hidden'; //hide
+
+        //BG track
+        BG.classList = ''; //for game resart
+        BG.classList.add('background');
+        BG.classList.add('intro');
+
+        narrator.innerText = "A Casual Adventure. Click 'Start' to Begin";
 
         story.innerText = 'Start';
 
@@ -47,17 +68,26 @@ function storyline() {
     //Narrator Intro
     if (adventure == 'begin') { //starts function
 
-        //Button track
-        story.classList.add('storyBtn'); //hide to show other buttons
-        choiceA.classList.remove('choiceBtn'); //remove 'hide' class
-        choiceB.classList.remove('choiceBtn'); //remove 'hide' class
-
         adventure = 'startRoll';  //leads to next scenario
+
+        //Button track
+        story.style.visibility = 'hidden';
+        choiceA.style.visibility = 'visible';
+        choiceB.style.visibility = 'visible';
+
+        // BG track
+        BG.classList = '';
+        BG.classList.add('background');
+        BG.classList.add('grassPath');
+
+        //Characters
+        characterBox.classList.add('character'); //for game restart
+        characterBox.classList.add('hero');
 
         narrator.innerText = 'Welcome young traveller! Are you ready to begin a new life journey?';
 
         choiceA.innerText = 'Yes! I am filled with excitement!';
-        choiceB.innerText = 'No, ask me tomorrow or something.';
+        choiceB.innerText = 'Today? Nah, maybe later.';
 
         return;
 
@@ -67,19 +97,26 @@ function storyline() {
     if (adventure == 'startRoll') {
 
         //Button track
-        story.classList.remove('storyBtn'); //remove 'hide' class
-        choiceA.classList.add('choiceBtn'); //add 'hide' class
-        choiceB.classList.add('choiceBtn'); //add 'hide' class
-        
+        story.style.visibility = 'visible';
+        choiceA.style.visibility = 'hidden';
+        choiceB.style.visibility = 'hidden';
+
         if (hero_choice == 'choiceA') {
 
             adventure = 'items'; //leads to next scenario
 
             narrator.innerText = 'Then let us begin! Click the "roll" button to see what items you start off with.';
 
-            story.innerText = 'roll'; //leads to next scenario
+            story.innerText = 'Roll'; //leads to next scenario
 
         } else if(hero_choice == 'choiceB') {
+
+            //Character
+            characterBox.classList.remove('hero');
+
+            //BG track
+            BG.classList.remove('grassPath')
+            BG.classList.add('tombstone');
             
             narrator.innerText = 'Fast fowarding to your death then. There was no point to remember your name. No one came to the burial, not even the pallbearers. You died with no legacy and in a casket to rot, full of regret and sadness. ["Pointless" END (1)]'; 
 
@@ -107,11 +144,20 @@ function storyline() {
         adventure = 'stageOne';  //leads to next scenario
 
         //Button track
-        story.classList.add('storyBtn'); //add 'hide' class
-        choiceA.classList.remove('choiceBtn'); //remove 'hide' class
-        choiceB.classList.remove('choiceBtn'); //remove 'hide' class
+        story.style.visibility = 'hidden'; //add 'hide' class
+        choiceA.style.visibility = 'visible';
+        choiceB.style.visibility = 'visible';
 
-        narrator.innerText = 'Day 1: The first day is always filled with promise, (unless you had a really bad roll). As you settle in to your new lifestyle, a merchant comes by and holds up a bag. He says that it has fruit in it. All you have to do is trade 50 coins. Do you accept?';
+        //BG track
+        BG.classList = '';
+        BG.classList.add('background');
+        BG.classList.add('grassPath');
+
+        //Characters
+        characterBox.classList.remove('hero');
+        characterBox.classList.add('merchant');
+
+        narrator.innerText = 'Day 1: The first day is always filled with promise,(unless you had a really bad roll). As you settle in to your new lifestyle, a merchant comes by and holds up a bag. He says that it has fruit in it. All you have to do is trade 50 coins. Do you accept?';
 
         choiceA.innerText = 'Sure! Here is your pay, my good man.';
         choiceB.innerText = 'No! I just started this adventure!';
@@ -126,9 +172,12 @@ function storyline() {
         adventure = 'stageTwoStart'; //leads to next scenario
 
         //Button Track
-        story.classList.remove('storyBtn') //remove 'hide' class;
-        choiceA.classList.add('choiceBtn') //add 'hide' class
-        choiceB.classList.add('choiceBtn') //add 'hide' class
+        story.style.visibility = 'visible';
+        choiceA.style.visibility = 'hidden';
+        choiceB.style.visibility = 'hidden';
+
+        //Characters
+        characterBox.classList.remove('merchant');
 
         if (hero_choice == 'choiceA') {
 
@@ -137,7 +186,11 @@ function storyline() {
 
             if (coins < 50) {
 
-                narrator.innerText = ('You explain to the merchant that you\'re short on cash at the moment, but willing to trade for the fruit. The merchant frowns and says, "Hope you like noodles". Before you could ask what he meant by that, he continued on his way. As realization slowly seeps in, you head off towards your barn only to find...spaghetti noodles? [END OF DAY ONE]')
+                // BG track
+                BG.classList.remove('grassPath');
+                BG.classList.add('noodles');
+
+                narrator.innerText = ('You explain to the merchant that you\'re short on cash at the moment, but willing to trade for the fruit. The merchant frowns and says, "Hope you like noodles". Before you could ask what he meant by that, he continued on his way. As realization slowly seeps in, you race off towards your barn only to find...spaghetti noodles? [END OF DAY ONE]')
 
                 food += cattle //add cattle amount to food
                 cattle -= cattle //reduce cattle to 0
@@ -149,20 +202,25 @@ function storyline() {
 
                 if(food_given > 0) {
 
+                    //Characters
+                    characterBox.classList.add('hero_happy');
+
                     narrator.innerText = ('The merchant thanks you for your purchase and speeds off. However, you begin to wonder if he was lying. Suspicion kicks in and you decide to check the bag. To your relief, it does have a few apples and grapes among other foods. [Food given: ' + food_given + '. Coins: -50] [END OF DAY ONE]');
                     food += food_given; //add to food based on random merch food
                     coins -= 50; //deduct from coins
 
-                    story.innerText = 'Woah. Ok, nice'; //allows function to go to next scenario upon click 
+                    story.innerText = 'Woah. Ok, nice';
 
                 }else { //The merchant can cheat hero
+
+                    //Characters
+                    characterBox.classList.add('hero_angry');
 
                     narrator.innerText = ('The merchant thanks you for your purchase and speeds off. However, you begin to wonder if he was lying. Suspicion kicks in and you decide to check the bag. Sadly, to your disappointment, you\'ve been robbed. [Food given: ' + food_given + '. Coins: -50] [END OF DAY ONE]');
                     food += food_given;
                     coins -= 50;
 
-                    
-                    story.innerText = 'Fantastic...'; //allows function to go to next scenario upon click 
+                    story.innerText = 'Fantastic...';
                 
                 }
 
@@ -171,12 +229,21 @@ function storyline() {
             
         }else if(hero_choice == 'choiceB'){
 
+            //BG track
+            BG.classList.remove('grassPath');
+
             if (cattle > 10) {
+
+                // BG track
+                BG.classList.add('burningBarn');    
 
                 narrator.innerText = 'The merchant went away hanging his head, and you couldn\'t help but feel a sting of pity. However, you continue with your day. As night comes along, you get ready for bed and patiently wait to start your next day. END OF DAY O-, hold up. You smell that? Is...is that...burnt wool? [Cattle -50] [END OF DAY ONE]';
                 cattle -= 50; //merchat "takes out" cattle           
 
             }else if (cattle <= 10) { //doesn't take anything if hero is cattle-broke
+
+                // BG track
+                BG.classList.add('nighttime');  
 
                 narrator.innerText = 'The merchant went away hanging his head, and you couldn\'t help but feel a sting of pity. However, you continue with your day. As night comes along, you get ready for bed and patiently wait for the next morning. Later that night, the merchant comes by with a lighter and gasoline. As he checks your wares however, he sees why you couldn\'t pay anyway and leaves shaking their head. [END OF DAY ONE]'; 
             }
@@ -185,9 +252,9 @@ function storyline() {
 
         }
 
-        hero_coins.innerText = ('Coins: ' + coins);
-        hero_cattle.innerText = ('Cattle: ' + cattle);
-        hero_food.innerText = ('Food: ' + food);
+        hero_coins.innerText = coins;
+        hero_cattle.innerText = cattle;
+        hero_food.innerText = food;
   
         return;
 
@@ -199,9 +266,19 @@ function storyline() {
         adventure = 'stageTwo'; //leads to next scenario
 
         //Button track
-        story.classList.add('storyBtn'); //add 'hide' class
-        choiceA.classList.remove('choiceBtn'); //remove 'hide' class
-        choiceB.classList.remove('choiceBtn'); //remove 'hide' class
+        story.style.visibility = 'hidden'; //add 'hide' class
+        choiceA.style.visibility = 'visible';
+        choiceB.style.visibility = 'visible';
+
+        //BG Track
+        BG.classList = ''; //clears list (for choice scenarios)
+        BG.classList.add('background');
+        BG.classList.add('farmlands');
+    
+        //Characters
+        characterBox.classList = ''; //clears list (for choice scenarios)
+        characterBox.classList.add('character');
+        characterBox.classList.add('farmer');
 
         narrator.innerText = 'Day 2: The second day is always filled with promise, (unless you had a really bad roll or got robbed or...nevermind). As you get ready to head off into town, a farmer comes by very distraught. He says a merchant-looking person came by and burned all their cattle. The suspect sounded familar, (but you didn\'t have any problems with them right?) He asks if you have any cattle to spare. At least 10 will do. Will you help?';
 
@@ -215,16 +292,23 @@ function storyline() {
     //Choices of Stage Two
     if (adventure == 'stageTwo') {
 
+        //Characters
+        characterBox.classList.remove('farmer');   
+
         if (hero_choice == 'choiceA') {
 
             adventure = 'stageThreeStart'; //reset to scene start if an ending is picked
 
             //Button Track
-            story.classList.remove('storyBtn'); //remove 'hide' class;
-            choiceA.classList.add('choiceBtn'); //add 'hide' class
-            choiceB.classList.add('choiceBtn'); //add 'hide' class
+            story.style.visibility = 'visible';;
+            choiceA.style.visibility = 'hidden';
+            choiceB.style.visibility = 'hidden';
             
             if (cattle < 10) {
+
+                //BG Track
+                BG.classList.remove('farmlands');
+                BG.classList.add('barn');
 
                 narrator.innerText = 'You explain to the farmer that you have less than that, and they smile sadly and nod. "That\'s fine, thanks for trying.", and they leave. This is a humbling moment for you, so you took the time to take care of what measly cattle you have, (if you have any). [END OF DAY TWO]' ;
 
@@ -232,20 +316,24 @@ function storyline() {
 
             } else {
 
-                narrator.innerText = 'Out of the kindness of your heart, you help the farmer. In return for your kindness, he hands you 50 coins and you both wave goodbye to each other. You either feel good about this act of kindness or you\'re salivating over those coins. [Coins +50. Cattle: -10] [END OF DAY TWO]';
+                //Characters
+                characterBox.classList.add('hero_happy');  
+
+                narrator.innerText = 'Out of the kindness of your heart,you help the farmer. In return for your kindness, he hands you 50 coins! You either feel good about this act of kindness or you\'re salivating over those coins. [Coins +50. Cattle: -10] [END OF DAY TWO]';
                 cattle -= 10;
                 coins += 50;
 
                 story.innerText = 'What? No, I enjoy helping people! ...for the right price...' ; //allows function to go to next scenario upon click
             }
 
-            hero_coins.innerText = ('Coins: ' + coins);
-            hero_cattle.innerText = ('Cattle: ' + cattle);
-            hero_food.innerText = ('Food: ' + food);
-
-
+            hero_coins.innerText = coins;
+            hero_cattle.innerText = cattle;
+            hero_food.innerText = food;
     
         } else if(hero_choice == 'choiceB') {
+ 
+            //BG Track
+            BG.classList.add('blood');
             
             narrator.innerText = 'The farmer starts yelling and spits at you. However, this farmer, doesn\'t know how short your temper is. You blink, and suddenly there\'s a dead farmer and blood on your hands. Not willing to go back to prison, you leave everything behind but the coins you have and head for the hills, never to be seen again. ["YOU KILLED SOMEBODY?!" END (4)]';   
 
@@ -254,9 +342,9 @@ function storyline() {
             adventure = 'stageTwoStart'; //Goes back to beginning of scenario
 
             //Button Track
-            story.classList.remove('storyBtn'); //remove 'hide' class;
-            choiceA.classList.add('choiceBtn'); //add 'hide' class
-            choiceB.classList.add('choiceBtn'); //add 'hide' class
+            story.style.visibility = 'visible';;
+            choiceA.style.visibility = 'hidden';
+            choiceB.style.visibility = 'hidden';
 
             return;
 
@@ -269,16 +357,26 @@ function storyline() {
     //Beginning of Stage Three
     if (adventure == 'stageThreeStart') {
 
-        //Button Track
-        story.classList.add('storyBtn'); //add 'hide' class
-        choiceA.classList.remove('choiceBtn'); //remove 'hide' class
-        choiceB.classList.remove('choiceBtn'); //remove 'hide' class
-        
         adventure = 'stageThree'; //leads to next scenario
+
+        //Button Track
+        story.style.visibility = 'hidden'; //add 'hide' class
+        choiceA.style.visibility = 'visible';
+        choiceB.style.visibility = 'visible';
+
+        //BG track
+        BG.classList = '';
+        BG.classList.add('background')
+        BG.classList.add('market');
+
+        //Characters
+        characterBox.classList = '';
+        characterBox.classList.add('character');
+        characterBox.classList.add('traders'); 
 
         narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market in town, hoping to sell some stuff while you\'re there. While there, you come across two traders selling unusual items. One offers a yellow potion and tells you that it grants happiness. The other tells you of a purple potion that tastes like grapes and dead fish. You don\'t want either, but they both convince you that the samples are free. You, not willing to turn down free samples, decided to pick one. Which do you choose?';
 
-        choiceA.innerText = 'Yellow! I need some of that for this trainwreck...';
+        choiceA.innerText = 'Yellow! Need a bit of that for this story...';
         choiceB.innerText = 'Purple! Why? ...no seriously, why?';
 
         return;
@@ -289,13 +387,21 @@ function storyline() {
     if (adventure == 'stageThree') {
 
         //Button Track
-        story.classList.remove('storyBtn'); //remove 'hide' class;
-        choiceA.classList.add('choiceBtn'); //add 'hide' class
-        choiceB.classList.add('choiceBtn'); //add 'hide' class
+        story.style.visibility = 'visible';
+        choiceA.style.visibility = 'hidden';
+        choiceB.style.visibility = 'hidden';
+
+        //BG track
+        BG.classList.remove('market');
+        
+        //Characters
+        characterBox.classList.remove('traders'); 
 
         if (hero_choice == 'choiceA') {
 
-            //Enable a go-back button here
+            //BG track
+            BG.classList.add('tombstone');
+
             narrator.innerText = 'So, you won\'t believe this, but the guy with the yellow potion was lying! Crazy right? After drinking it,some crazy events begin to happen. Long story short, you died from poisoning by arsenic and...well...let\'s just say that yellow tint wasn\'t food coloring ok? ["Forbidden lemonade" END (5)]'; 
   
             story.innerText = '*Gurgling Noises*';
@@ -308,13 +414,16 @@ function storyline() {
 
             adventure = 'stageFourStart'; //leads to next scenario
 
+            //BG track
+            BG.classList.add('nighttime');
+
             narrator.innerText = 'Turns out the flavor was really Blackberry. But you thanked the trader and went on your way, looking for a spot to start selling. The day was rough, but you managed to sell some items for 10 coins and even bought 50 cattle. As it began to get dark, you head home a bit richer. [Coins: +10] [END OF DAY THREE]';
             coins += 10; //add to coins
             cattle += 50; //add to cattle
             
-            hero_coins.innerText = ('Coins: ' + coins);
-            hero_cattle.innerText = ('Cattle: ' + cattle);
-            hero_food.innerText = ('Food: ' + food);
+            hero_coins.innerText = coins;
+            hero_cattle.innerText = cattle;
+            hero_food.innerText = food;
 
             story.innerText = 'Partying at the tavern tonight! Whoo!';
 
@@ -330,9 +439,18 @@ function storyline() {
         adventure = 'stageFour';
 
         //Button Track
-        story.classList.add('storyBtn'); //add 'hide' class
-        choiceA.classList.remove('choiceBtn'); //remove 'hide' class
-        choiceB.classList.remove('choiceBtn'); //remove 'hide' class
+        story.style.visibility = 'hidden'; //add 'hide' class
+        choiceA.style.visibility = 'visible';
+        choiceB.style.visibility = 'visible';
+
+        //BG track
+        BG.classList = '';
+        BG.classList.add('background');
+        BG.classList.add('bedroom');
+
+        //Characters
+        characterBox.classList = '';
+        characterBox.classList.add('character');
 
         narrator.innerText = 'Day 4: {Insert line here}. You wake up and get ready for the day. As you\'re cooking breakfast, you hear a knock at the door. You remembered that you weren\'t expecting visitors for another three months. A wave of suspicion hits you like a semi. Should you open the door?';
 
@@ -347,24 +465,34 @@ function storyline() {
     if (adventure == 'stageFour') {
 
         //Button Track
-        story.classList.remove('storyBtn'); //remove 'hide' class
-        choiceA.classList.add('choiceBtn'); //add 'hide' class
-        choiceB.classList.add('choiceBtn'); //add 'hide' class
+        story.style.visibility = 'visible';
+        choiceA.style.visibility = 'hidden';
+        choiceB.style.visibility = 'hidden';
+
+        //BG track 
+        BG.classList.remove('bedroom');
+        BG.classList.add('kitchen');
 
         if (hero_choice == 'choiceA') {
 
             adventure = 'narrator note'; //leads to next scenario
 
+            //Characters
+            characterBox.classList.add('granny_happy');
+
             narrator.innerText = 'Turns out it was just your granny coming to give you some homecooked meals. She heard that you were having a bit of a hard time from your mother, and stopped by to you help out. How kind. [Food: +100] [END OF DAY FOUR]';
             food += 100; //granny came by with fiddles
 
-            hero_coins.innerText = ('Coins: ' + coins);
-            hero_cattle.innerText = ('Cattle: ' + cattle);
-            hero_food.innerText = ('Food: ' + food);
+            hero_coins.innerText = coins;
+            hero_cattle.innerText = cattle;
+            hero_food.innerText = food;
 
             story.innerText = 'Thank you Gran Gran!'; //allows function to go to next scenario upon click
 
         }else if(hero_choice == 'choiceB') {
+
+            //Characters
+            characterBox.classList.add('granny_angry');
 
             narrator.innerText = 'The knocking persists and you start to grow more and more fightened. Then, the door breaks off the hinges, and an old lady steps in with a mask on. The look on her face was pure rage, and she lunges at you with a baguette, slapping you continuously with it. As you slowly lose consciousness, you think to yourself: "Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
 
@@ -383,14 +511,29 @@ function storyline() {
     if (adventure == 'narrator note') {
 
         //Button Track
-        story.classList.remove('storyBtn') //remove 'hide' class   
+        story.style.visibility = 'visible';
 
-        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Thank you for your time and see you soon.'; 
+        //Hero Stats
+        hero_box.style.visibility = 'hidden';
+
+        // BG track
+        BG.classList = '';
+        BG.classList.add('background');
+        BG.classList.add('lounge');
+
+        //Characters
+        characterBox.classList = '';
+
+        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Enjoy this nice resting area, and feel free to play again and/or give me feedback if you wish. Either way, thank you for your time and see you soon.'; 
 
         story.innerText = 'Let\'s take it from the top!'; //Game resets when clicked
 
         adventure = 'intro'; //Game resetter
-    
+        
+        coins = 0; 
+        cattle = 0;
+        food = 0;
+
         return;
     }
     
@@ -402,6 +545,7 @@ var coins_amt = [150, 100, 50, 10];
 var cattle_amt = [150, 100, 50, 10];
 
 function random() {
+
     //add randomizer here
     var random_food = food_amt[Math.floor(Math.random() * food_amt.length)];
 
@@ -461,9 +605,11 @@ function random() {
 
     }
   
-    hero_coins.innerText = ('Coins: ' + coins);
-    hero_cattle.innerText = ('Cattle: ' + cattle);
-    hero_food.innerText = ('Food: ' + food);
+    hero_coins.innerText = coins;
+    hero_cattle.innerText = cattle;
+    hero_food.innerText = food;
+    
+    hero_box.style.visibility = 'visible';
 
     return food, cattle, coins; //for use in-game
 }
