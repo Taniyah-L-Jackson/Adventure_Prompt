@@ -508,6 +508,7 @@ function storyline() {
 
     }
 
+    //Narrator Note
     if (adventure == 'narrator note') {
 
         //Button Track

@@ -206,7 +206,7 @@ button {
 }
 
 
-@media (min-width: 400px) and (max-width: 767px) {
+@media (max-width: 767px) {
     
     .story_plot {
         margin-top: 62%;
