@@ -12,33 +12,33 @@ body {
 /* character setup */
 .character {
     position: absolute;
-    margin-top: -36%;
-    margin-left: 23%;
+    margin-top: -36.5%;
+    margin-left: 40%;
     height: 452px;
     width: 500px;  
 }
 
 /* characters */
 .hero {
-    background: url(../media/character_draft_intro.png);
+    background: url(../media/character_draft_introL.png);
 }
 
 .merchant {
-    margin-top: -38%;
+    margin-top: -38.5%;
     height: 477px;
     background: url(../media/character-merchant.png);
 }
 
 .hero_happy {
-    background: url(../media/character_draft2_happy.png);
+    background: url(../media/character_draft2_happyL.png);
 }
 
 .hero_angry {
-    background: url(../media/character_draft_upset.png);
+    background: url(../media/character_draftL_upset.png);
 }
 
 .farmer {
-    background: url(../media/character-farmer.png);
+    background: url(../media/character-farmerL.png);
 }
 
 .traders {
@@ -48,13 +48,13 @@ body {
 .granny_happy {
     margin-top: -38%;
     height: 470px;
-    background: url(../media/character-granny_normal.png);
+    background: url(../media/character-granny_normalL.png);
 }
 
 .granny_angry {
     margin-top: -39%;
     height: 483px;
-    background: url(../media/character-granny_attack.png);
+    background: url(../media/character-granny_attackL.png);
 }
 
 /* Backgrounds--------------------- */
@@ -145,6 +145,7 @@ ul {
 }
 
 li {
+    list-style-type: none;
     color: rgb(255, 214, 0);
 }
 
@@ -204,27 +205,8 @@ button {
     color: black;
 }
 
-/* Backgrounds: */
-/*George Hiles*/
-/* Ashley Trethowan */
-/* Anne Preble  */
-/* Vincentiu Solomon */
-/* Rowan Heuvel */
-/* Sheila Joy */
-/* Stephen Radford */
-/* Frances Gunn */
-/* Annie Spratt */
-/* Samuel Penn */
-/* Joshua Ness */
-/* Aleksandar Ristov */
 
-/* 
-sm 768
-md 992
-lg 1280 */
-
-
-@media (min-width: 425px) {
+@media (min-width: 425px) and (max-width: 767px) {
     
     .story_plot {
         margin-top: 100%;
@@ -240,6 +222,10 @@ lg 1280 */
         width: 333px;
     }
 
+    .hero {
+        background: url(../media/character_draft_intro.png);
+    }
+
     .merchant {
         margin-top: -103%;
         height: 428px;    
@@ -248,6 +234,7 @@ lg 1280 */
     .farmer {
         height: 454px;
         width: 343px;
+        background: url(../media/character-farmer.png);
     }
 
     .traders {
@@ -257,9 +244,14 @@ lg 1280 */
         width: 440px;
     }
 
-    .granny_angry {
+    .granny_happy {
         height: 454px;
         width: 340px;
+        background: url(../media/character-granny_normal.png);
+    }
+
+    .granny_angry {
+        background: url(../media/character_draft_upset.png);
     }
 
     .hero_stats {
@@ -308,6 +300,101 @@ lg 1280 */
         margin-left: 50%;
     }
 
+}
 
+@media (min-width: 768px) and (max-width: 959px) {
+
+    .story_plot {
+        margin-top: 57%;
+        margin-left: 0%;
+        height: 160px;
+        width: 100%;
+    }
+
+    .narration {
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+    .character {
+        margin-top: -60%;
+        margin-left: 39%;
+        height: 451px;    
+    }
+
+    .hero {
+        background: url(../media/character_draft_intro.png);
+    }
+
+    .merchant {
+        margin-top: -63%;
+        height: 474px;
+    }
+
+    .farmer {
+        background: url(../media/character-farmer.png);
+    }
+
+    .traders {
+        margin-left: 34%;
+    }
+
+    .granny_happy {
+        background: url(../media/character-granny_normal.png);
+    }
+
+    .granny_angry {
+        margin-left: 20%;
+        background: url(../media/character_draft_upset.png);
+    }
+
+    .hero_stats {
+        margin-top: 21%;
+        margin-left: 0%;    
+        height: 250px;
+        width: 200px;
+    }     
+
+    ul {
+        list-style-type: none;
+    }
+
+    .storyBtn {
+        margin-top: 13%;
+        margin-left: 7%;
+        height: 40px;
+        width: 81%;
+        font-size: 15px;
+    }
+
+    .choiceBtn  {
+        margin-top: 13%;
+        height: 40px;
+        width: 45%;
+        font-size: 13px;
+    }
+
+    .choiceB {
+        margin-left: 48%;
+    }
 
 }
+
+/* Backgrounds: */
+/*George Hiles*/
+/* Ashley Trethowan */
+/* Anne Preble  */
+/* Vincentiu Solomon */
+/* Rowan Heuvel */
+/* Sheila Joy */
+/* Stephen Radford */
+/* Frances Gunn */
+/* Annie Spratt */
+/* Samuel Penn */
+/* Joshua Ness */
+/* Aleksandar Ristov */
+
+/* 
+sm 768
+md 992
+lg 1280 */
