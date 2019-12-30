@@ -525,7 +525,7 @@ function storyline() {
         //Characters
         characterBox.classList = '';
 
-        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Enjoy this nice resting area, and feel free to play again and/or give me feedback if you wish. Either way, thank you for your time and see you soon.'; 
+        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Feel free to play again and/or give me feedback if you wish. Either way, thank you for your time and see you soon.'; 
 
         story.innerText = 'Let\'s take it from the top!'; //Game resets when clicked
 

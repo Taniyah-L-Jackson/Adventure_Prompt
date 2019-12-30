@@ -127,7 +127,6 @@ body {
 
 .background {
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 /* For Storyline */
@@ -211,58 +210,61 @@ button {
     
     .story_plot {
         position: absolute;
-        margin-top: 62%;
-        height: 116px;
+        margin-top: 102%;
+        height: 170px;
         width: 100%;
         background: rgb(27, 154, 131);
     }
 
     .character {
         position: absolute;
-        margin-top: -33%;
-        margin-left: -17%;    
-        height: 358px;
+        margin-top: -9%;
+        margin-left: -14%;
+        height: 439px;
         width: 333px;
     }
 
     .hero {
-        background: url(../media/character_draft_introS.png);
+        background: url(../media/character_draft_intro.png);
     }
 
     .hero_happy {
-        background: url(../media/character_draft2_happyS.png);
+        background: url(../media/character_draft2_happy.png);
     }
 
     .hero_angry {
-        background: url(../media/character_draft_upsetS.png);
+        background: url(../media/character_draft_upset.png);
     }
 
     .merchant {
-        background: url(../media/character-merchantS.png);   
+        background: url(../media/character-merchant.png);   
     }
 
     .farmer {
-        margin-top: -36%;
-        height: 370px;
+        margin-top: -11%;
+        margin-left: -19%;
+        height: 451px;
         width: 343px;
-        background: url(../media/character-farmerS.png);
+        background: url(../media/character-farmer.png);
     }
 
     .traders {
-        height: 358px;
-        background: url(../media/character-tradersS.png);
+        margin-top: -23px;
+        height: 424px;
+        width: 400px;
+        background: url(../media/character-traders.png);
     }
 
     .granny_happy {
-        margin-top: -42%;
-        height: 392px;
-        background: url(../media/character-granny_normalS.png);
+        margin-top: -2%;
+        height: 410px;
+        background: url(../media/character-granny_normal.png);
     }
 
     .granny_angry {
-        margin-top: -42%;
-        height: 392px;
-        background: url(../media/character-granny_attackS.png);
+        margin-top: -2%;
+        height: 410px;
+        background: url(../media/character-granny_attack.png);
     }
 
     .hero_stats {
@@ -285,27 +287,27 @@ button {
     }
 
     .narration {
-        margin-top: 7px;
+        margin-top: 10px;
         margin-left: 0px;
         margin-right: 10px;
-        font-size: 8px;
+        font-size: 10px;    
     }
 
     /* Buttons */
 
     .storyBtn {
-        margin-top: 18%;
-        margin-left: 8%;
-        height: 29px;
-        width: 75%;
-        font-size: 8px;
+        margin-top: 29%;
+        margin-left: 0%;
+        height: 37px;
+        width: 92%;
+        font-size: 15px;
     }
 
     .choiceBtn {
-        margin-top: 18%;
-        height: 30px;
+        margin-top: 27%;
+        height: 45px;
         width: 45%;
-        font-size: 8px;
+        font-size: 9px;
     }
 
     .choiceB {
@@ -321,6 +323,7 @@ button {
         margin-top: 53%;
         height: 150px;
         width: 100%;
+
     }
 
     .narration {
