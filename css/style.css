@@ -146,7 +146,6 @@ ul {
 
 li {
     color: rgb(255, 214, 0);
-    list-style-type: none;
 }
 
 .hero_stats {
@@ -173,9 +172,6 @@ li {
 
 
 /* For buttons */ 
-button {
-    color: rgb(1, 51, 46);
-}
 
 .storyBtn {
     position: absolute;
@@ -204,6 +200,10 @@ button {
     margin-left: 52%;
 }
 
+button {
+    color: black;
+}
+
 /* Backgrounds: */
 /*George Hiles*/
 /* Ashley Trethowan */
@@ -217,3 +217,97 @@ button {
 /* Samuel Penn */
 /* Joshua Ness */
 /* Aleksandar Ristov */
+
+/* 
+sm 768
+md 992
+lg 1280 */
+
+
+@media (min-width: 425px) {
+    
+    .story_plot {
+        margin-top: 100%;
+        height: 176px;
+        width: 108%;
+    }
+
+    .character {
+        position: absolute;
+        margin-top: -109%;
+        margin-left: -10%;
+        height: 453px;
+        width: 333px;
+    }
+
+    .merchant {
+        margin-top: -103%;
+        height: 428px;    
+    }
+
+    .farmer {
+        height: 454px;
+        width: 343px;
+    }
+
+    .traders {
+        margin-top: -109%;
+        margin-left: -11%;
+        height: 455px;
+        width: 440px;
+    }
+
+    .granny_angry {
+        height: 454px;
+        width: 340px;
+    }
+
+    .hero_stats {
+        margin-top: 0%;
+        height: 58px;
+        width: 427px;
+    }
+
+    .hero_text {
+        margin: 8px 12px 0px;
+        font-size: 20px;    
+    }
+
+    ul {
+        display: inline;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .narration {
+        margin-top: 5px;
+        margin-left: 0px;
+        font-size: 12px;
+    }
+
+    /* Buttons */
+
+    .storyBtn {
+        margin-top: 25%;
+        margin-left: 8%;
+        height: 45px;
+        width: 80%;
+        font-size: 15px;
+    }
+
+    .choiceBtn {
+        margin-top: 25%;
+        height: 45px;
+        width: 40%;
+        font-size: 11px;
+    }
+
+    .choiceB {
+        margin-left: 50%;
+    }
+
+
+
+}

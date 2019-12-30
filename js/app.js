@@ -237,7 +237,7 @@ function storyline() {
                 // BG track
                 BG.classList.add('burningBarn');    
 
-                narrator.innerText = 'The merchant went away hanging his head, and you couldn\'t help but feel a sting of pity. However, you continue with your day. As night comes along, you get ready for bed and patiently wait to start your next day. END OF DAY O-, hold up. You smell that? Is...is that...burnt wool? [Cattle -50] [END OF DAY ONE]';
+                narrator.innerText = 'The merchant went away hanging his head, and a sting of pity fills your heart. However, you continue with your day. As night approaches, you get ready for bed and wait for the next day. END OF DAY O-, hold up. You smell that? Is...is that...burnt wool? [Cattle -50] [END OF DAY ONE]';
                 cattle -= 50; //merchat "takes out" cattle           
 
             }else if (cattle <= 10) { //doesn't take anything if hero is cattle-broke
@@ -280,7 +280,7 @@ function storyline() {
         characterBox.classList.add('character');
         characterBox.classList.add('farmer');
 
-        narrator.innerText = 'Day 2: The second day is always filled with promise, (unless you had a really bad roll or got robbed or...nevermind). As you get ready to head off into town, a farmer comes by very distraught. He says a merchant-looking person came by and burned all their cattle. The suspect sounded familar, (but you didn\'t have any problems with them right?) He asks if you have any cattle to spare. At least 10 will do. Will you help?';
+        narrator.innerText = 'Day 2: The second day is always filled with promise, (unless you started on the wrong foot). As you get ready to head off into town, you spot a sullen farmer. He says a person came by and burned all their cattle. The suspect\'s description sounded like the passing merchant, but you shrug it off nonchalantly. He asks if you have any cattle to spare. At least 10 will do. Will you help?';
 
         choiceA.innerText = 'Here, Glad to help';
         choiceB.innerText = 'There\'s a market nearby. Go buy more.';
@@ -319,7 +319,7 @@ function storyline() {
                 //Characters
                 characterBox.classList.add('hero_happy');  
 
-                narrator.innerText = 'Out of the kindness of your heart,you help the farmer. In return for your kindness, he hands you 50 coins! You either feel good about this act of kindness or you\'re salivating over those coins. [Coins +50. Cattle: -10] [END OF DAY TWO]';
+                narrator.innerText = 'Out of the kindness of your heart, you help the farmer. In return for your kindness, he hands you 50 coins! You either feel good about this act of kindness or you\'re salivating over those coins. [Coins +50. Cattle: -10] [END OF DAY TWO]';
                 cattle -= 10;
                 coins += 50;
 
@@ -374,7 +374,7 @@ function storyline() {
         characterBox.classList.add('character');
         characterBox.classList.add('traders'); 
 
-        narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market in town, hoping to sell some stuff while you\'re there. While there, you come across two traders selling unusual items. One offers a yellow potion and tells you that it grants happiness. The other tells you of a purple potion that tastes like grapes and dead fish. You don\'t want either, but they both convince you that the samples are free. You, not willing to turn down free samples, decided to pick one. Which do you choose?';
+        narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market. While there, two traders approch you, selling potions. One tells you that hers grants happiness. The other tells you that hers tastes like grapes and dead fish. You don\'t want either, but since they tell you that they are free samples, you decide to pick one. Which do you choose?';
 
         choiceA.innerText = 'Yellow! Need a bit of that for this story...';
         choiceB.innerText = 'Purple! Why? ...no seriously, why?';
@@ -494,7 +494,7 @@ function storyline() {
             //Characters
             characterBox.classList.add('granny_angry');
 
-            narrator.innerText = 'The knocking persists and you start to grow more and more fightened. Then, the door breaks off the hinges, and an old lady steps in with a mask on. The look on her face was pure rage, and she lunges at you with a baguette, slapping you continuously with it. As you slowly lose consciousness, you think to yourself: "Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
+            narrator.innerText = 'The knocking persists and you start panicking. Suddenly, the door breaks off the hinges, and a masked old lady steps in. Pure rage was on her face, and she lunges at you with a baguette, continuously slapping you with it! As you lose consciousness, you think to yourself: "Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
 
             story.innerText = 'Narrator speaking: Gonna open that door now, huh?';
             
