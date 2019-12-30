@@ -323,7 +323,7 @@ function storyline() {
                 cattle -= 10;
                 coins += 50;
 
-                story.innerText = 'What? No, I enjoy helping people! ...for the right price...' ; //allows function to go to next scenario upon click
+                story.innerText = 'Wh-No! I enjoy helping people! ....41, 42...' ; //allows function to go to next scenario upon click
             }
 
             hero_coins.innerText = coins;

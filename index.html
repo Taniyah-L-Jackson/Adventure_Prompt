@@ -9,56 +9,49 @@
     <title>Build your own Adventure</title>
 </head>
 
-<body>
+<body id="background">
 
-    <div id="background">
+    <div class="container">
 
-        <div class="container">
+        <div class="row hero_stats" id="hero_stats">
 
+            <div class="col-sm-12 hero_text">
 
-            <div class="row hero_stats" id="hero_stats">
+                <ul>Food:
 
-                <div class="col-sm-12 hero_text">
+                    <li id="hero_food"></li>
 
-                    <ul>Food:
+                </ul>
 
-                        <li id="hero_food"></li>
+                <ul>Cattle: 
 
-                    </ul>
+                    <li id="hero_cattle"></li>
 
-                    <ul>Cattle: 
+                </ul>
 
-                        <li id="hero_cattle"></li>
+                <ul>Coins:
 
-                    </ul>
+                    <li id="hero_coins"></li>
 
-                    <ul>Coins:
-
-                        <li id="hero_coins"></li>
-
-                    </ul>
-
-                </div>
+                </ul>
 
             </div>
 
-            
+        </div>
 
-            <div class="row story_plot">
+        <div class="row">
 
-                <div id="characterBox"></div>
+            <div id="characterBox"></div>
 
-                <div class="col-sm-12">
-                    
-                    <h1 class="narration" id="narrator"></h1>
-
-                    <button class="storyBtn" id="storyButton"></button>
-
-                    <button class="choiceBtn" id="choiceA" value="choiceA"></button>
+            <div class="col-sm-12 story_plot">
                 
-                    <button class="choiceBtn choiceB" id="choiceB" value="choiceB"></button>
+                <h1 class="narration" id="narrator"></h1>
 
-                </div>
+                <button class="storyBtn" id="storyButton"></button>
+
+                <button class="choiceBtn" id="choiceA" value="choiceA"></button>
+            
+                <button class="choiceBtn choiceB" id="choiceB" value="choiceB"></button>
 
             </div>
 
