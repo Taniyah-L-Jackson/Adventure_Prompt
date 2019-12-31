@@ -284,13 +284,13 @@ button {
     .choiceBtn {
         margin-top: 36%;
         margin-left: 0%;
-        height: 47px;
+        height: 35px;
         width: 92%;
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .choiceB {
-        margin-top: 50%;
+        margin-top: 47%;
     }
     
 }
