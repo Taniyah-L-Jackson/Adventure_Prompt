@@ -13,7 +13,7 @@ body {
 /* character setup */
 .character {
     position: absolute;
-    margin-top: 4%;
+    margin-top: 10%;
     margin-left: 40%;
     height: 452px;
     width: 500px;  
@@ -166,10 +166,9 @@ li {
     margin-top: 50%;
     height: 250px;
     width: 100%;
-    background: rgba(27, 154, 131, 0.85);
+    background: rgb(27, 154, 131);
     border: 10px ridge rgb(2, 115, 90);
 }
-
 
 /* For buttons */ 
 
