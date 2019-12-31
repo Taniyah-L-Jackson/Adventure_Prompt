@@ -13,7 +13,7 @@ body {
 /* character setup */
 .character {
     position: absolute;
-    margin-top: 10%;
+    margin-top: 4%;
     margin-left: 40%;
     height: 452px;
     width: 500px;  
@@ -33,8 +33,8 @@ body {
 }
 
 .merchant {
-    margin-top: 0%;
-    height: 487px;
+    margin-top: 4%;
+    height: 449px;
     background: url(../media/character-merchantL.png);
 }
 
@@ -159,10 +159,11 @@ li {
 
 .hero_text {
     margin: 15px 12px 0px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .story_plot {
+    position: relative;
     margin-top: 50%;
     height: 250px;
     width: 100%;
@@ -221,7 +222,7 @@ button {
 
     .hero_text {
         margin: 25px 15px 0px;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .story_plot {
@@ -230,9 +231,9 @@ button {
     }
 
     .character {
-        margin-top: -8%;
+        margin-top: 0%;
         margin-left: -13%;
-        height: 76%;
+        height: 80%;
         width: 100%;
     }
 
@@ -241,20 +242,14 @@ button {
     } 
 
     .hero_happy {
-        margin-top: 6%;
-        height: 66%;
         background: url(../media/character_draft2_happy.png);
     }
 
     .hero_angry {
-        margin-top: 6%;
-        height: 66%;
         background: url(../media/character_draft_upset.png);
     }
     
     .merchant {
-        margin-top: -9%;
-        height: 77%;
         background: url(../media/character-merchant.png);
     }
 
@@ -263,8 +258,6 @@ button {
     }
 
     .traders {
-        margin-top: -2%;
-        height: 72%;
         background: url(../media/character-traders.png);
     }
 
@@ -289,20 +282,41 @@ button {
     }
 
     .choiceBtn {
-        margin-top: 32%;
+        margin-top: 35%;
+        margin-left: 0%;
         height: 47px;
         width: 92%;
         font-size: 13px;
     }
 
     .choiceB {
-        margin-top: 46%;
-        margin-left: 0%;
+        margin-top: 50%;
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .hero_stats {
+        margin-top: 16%;
+    }
+
+    .character {
+        margin-top: -7%;
+    }
+
+    .storyBtn {
+        margin-top: 22%;
+    }
+
+    .choiceBtn {
+        margin-top: 22%;
     }
 
 
-    
 }
+
+
 
 /* Backgrounds: */
 /*George Hiles*/
