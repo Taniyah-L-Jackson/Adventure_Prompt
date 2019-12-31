@@ -13,7 +13,7 @@ body {
 /* character setup */
 .character {
     position: absolute;
-    margin-top: -36.5%;
+    margin-top: 4%;
     margin-left: 40%;
     height: 452px;
     width: 500px;  
@@ -24,12 +24,6 @@ body {
     background: url(../media/character_draft_introL.png);
 }
 
-.merchant {
-    margin-top: -38.5%;
-    height: 477px;
-    background: url(../media/character-merchant.png);
-}
-
 .hero_happy {
     background: url(../media/character_draft2_happyL.png);
 }
@@ -38,23 +32,27 @@ body {
     background: url(../media/character_draft_upsetL.png);
 }
 
+.merchant {
+    margin-top: 0%;
+    height: 487px;
+    background: url(../media/character-merchantL.png);
+}
+
 .farmer {
     background: url(../media/character-farmerL.png);
 }
 
 .traders {
-    background: url(../media/character-traders.png);
+    background: url(../media/character-tradersL.png);
 }
 
 .granny_happy {
-    margin-top: -38%;
-    height: 470px;
+    height: 454px;
     background: url(../media/character-granny_normalL.png);
 }
 
 .granny_angry {
-    margin-top: -39%;
-    height: 483px;
+    height: 454px;
     background: url(../media/character-granny_attackL.png);
 }
 
@@ -127,6 +125,7 @@ body {
 
 .background {
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* For Storyline */
@@ -151,7 +150,7 @@ li {
 
 .hero_stats {
     position: absolute;
-    margin-top: 25%;
+    margin-top: 23%;
     height: 250px;
     width: 200px;
     background: rgb(153, 33, 160);
@@ -194,7 +193,7 @@ li {
     background: rgb(6, 193, 152);
     border: 3px solid rgb(0, 76, 68);
     border-radius: 20px;
-    font-size: 20px;;
+    font-size: 18px;
 }
 
 .choiceB {
@@ -205,77 +204,12 @@ button {
     color: black;
 }
 
-
-@media (max-width: 475px) {
-    
-    .story_plot {
-        position: absolute;
-        margin-top: 102%;
-        height: 170px;
-        width: 100%;
-        background: rgb(27, 154, 131);
-    }
-
-    .character {
-        position: absolute;
-        margin-top: -9%;
-        margin-left: -14%;
-        height: 439px;
-        width: 333px;
-    }
-
-    .hero {
-        background: url(../media/character_draft_intro.png);
-    }
-
-    .hero_happy {
-        background: url(../media/character_draft2_happy.png);
-    }
-
-    .hero_angry {
-        background: url(../media/character_draft_upset.png);
-    }
-
-    .merchant {
-        background: url(../media/character-merchant.png);   
-    }
-
-    .farmer {
-        margin-top: -11%;
-        margin-left: -19%;
-        height: 451px;
-        width: 343px;
-        background: url(../media/character-farmer.png);
-    }
-
-    .traders {
-        margin-top: -23px;
-        height: 424px;
-        width: 400px;
-        background: url(../media/character-traders.png);
-    }
-
-    .granny_happy {
-        margin-top: -2%;
-        height: 410px;
-        background: url(../media/character-granny_normal.png);
-    }
-
-    .granny_angry {
-        margin-top: -2%;
-        height: 410px;
-        background: url(../media/character-granny_attack.png);
-    }
+@media (max-width: 767px) {
 
     .hero_stats {
         margin-top: 0%;
-        height: 60px;
+        height: 88px;
         width: 100%;
-    }
-
-    .hero_text {
-        margin: 12px 13px 0px;
-        font-size: 15px;    
     }
 
     ul {
@@ -286,72 +220,43 @@ button {
         display: inline;
     }
 
-    .narration {
-        margin-top: 10px;
-        margin-left: 0px;
-        margin-right: 10px;
-        font-size: 10px;    
+    .hero_text {
+        margin: 25px 15px 0px;
+        font-size: 18px;
     }
-
-    /* Buttons */
-
-    .storyBtn {
-        margin-top: 29%;
-        margin-left: 0%;
-        height: 37px;
-        width: 92%;
-        font-size: 15px;
-    }
-
-    .choiceBtn {
-        margin-top: 27%;
-        height: 45px;
-        width: 45%;
-        font-size: 9px;
-    }
-
-    .choiceB {
-        margin-left: 47%;
-    }
-
-}
-
-@media (min-width: 476px) and (max-width: 959px) {
 
     .story_plot {
-        position: absolute;
-        margin-top: 53%;
-        height: 150px;
-        width: 100%;
-
-    }
-
-    .narration {
-        margin-top: 9px;
-        font-size: 11px;
+        margin-top: 100%;
+        height: 250px;
     }
 
     .character {
-        margin-top: -14%;
-        margin-left: 35%;
-        height: 400px;      
+        margin-top: -8%;
+        margin-left: -13%;
+        height: 76%;
+        width: 100%;
     }
 
     .hero {
         background: url(../media/character_draft_intro.png);
-    }
+    } 
 
     .hero_happy {
+        margin-top: 6%;
+        height: 66%;
         background: url(../media/character_draft2_happy.png);
     }
 
     .hero_angry {
+        margin-top: 6%;
+        height: 66%;
         background: url(../media/character_draft_upset.png);
     }
-
+    
     .merchant {
-        margin-top: -10%;
-        height: 373px;
+        margin-top: -9%;
+        height: 77%;
+        background: url(../media/character-merchant.png);
     }
 
     .farmer {
@@ -359,57 +264,45 @@ button {
     }
 
     .traders {
-        margin-left: 15%;
+        margin-top: -2%;
+        height: 72%;
+        background: url(../media/character-traders.png);
     }
 
     .granny_happy {
-        margin-top: -19%;
-        margin-left: 20%;    
-        height: 426px;
         background: url(../media/character-granny_normal.png);
     }
 
     .granny_angry {
-        margin-top: -19%;
-        margin-left: 20%; 
-        height: 426px;
         background: url(../media/character-granny_attack.png);
     }
 
-    .hero_stats {
-        margin-top: 19%;
-        height: 200px;
-        width: 140px;
-    }    
-    
-    .hero_text {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-
-    ul {
-        list-style-type: none;
+    .narration {
+        margin: 15px 5px 0px;
+        font-size: 12px;
     }
 
     .storyBtn {
-        margin-top: 15%;
-        margin-left: 7%;
-        height: 40px;
-        width: 81%;
+        margin-top: 44%;
+        margin-left: 3%;
+        height: 46px;
         font-size: 15px;
     }
 
-    .choiceBtn  {
-        margin-top: 15%;
-        height: 40px;
-        width: 45%;
+    .choiceBtn {
+        margin-top: 32%;
+        height: 47px;
+        width: 92%;
         font-size: 13px;
     }
 
     .choiceB {
-        margin-left: 50%;
+        margin-top: 46%;
+        margin-left: 0%;
     }
 
+
+    
 }
 
 /* Backgrounds: */

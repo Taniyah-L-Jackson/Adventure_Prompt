@@ -376,7 +376,7 @@ function storyline() {
 
         narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market. While there, two traders approch you, selling potions. One tells you that hers grants happiness. The other tells you that hers tastes like grapes and dead fish. You don\'t want either, but since they tell you that they are free samples, you decide to pick one. Which do you choose?';
 
-        choiceA.innerText = 'Yellow! Need a bit of that for this story...';
+        choiceA.innerText = 'Yellow! Need some of that for this story...';
         choiceB.innerText = 'Purple! Why? ...no seriously, why?';
 
         return;
@@ -525,7 +525,7 @@ function storyline() {
         //Characters
         characterBox.classList = '';
 
-        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Feel free to play again and/or give me feedback if you wish. Either way, thank you for your time and see you soon.'; 
+        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Feel free to play again and/or give me feedback if you wish. Either way,thank you for your time and see you soon.'; 
 
         story.innerText = 'Let\'s take it from the top!'; //Game resets when clicked
 
