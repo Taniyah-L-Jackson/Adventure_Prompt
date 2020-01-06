@@ -132,7 +132,7 @@ body {
 
 .narration {
     position: absolute;
-    margin: 24px 20px 0px;
+    margin: 10px auto;
     font-size: 18px;
 }
 
@@ -158,7 +158,7 @@ li {
 } 
 
 .hero_text {
-    margin: 15px 12px 0px;
+    margin: auto;
     font-size: 24px;
 }
 
@@ -221,7 +221,6 @@ button {
     }
 
     .hero_text {
-        margin: 25px 15px 0px;
         font-size: 14px;
     }
 
@@ -270,7 +269,6 @@ button {
     }
 
     .narration {
-        margin: 10px 5px 0px;
         font-size: 12px;
     }
 
