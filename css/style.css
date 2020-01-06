@@ -13,7 +13,7 @@ body {
 /* character setup */
 .character {
     position: absolute;
-    margin-top: 4%;
+    margin-top: 11%;
     margin-left: 40%;
     height: 452px;
     width: 500px;  
@@ -33,7 +33,6 @@ body {
 }
 
 .merchant {
-    margin-top: 4%;
     height: 449px;
     background: url(../media/character-merchantL.png);
 }
@@ -124,6 +123,7 @@ body {
 /* background setup*/
 
 .background {
+    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
 }
