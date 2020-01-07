@@ -301,16 +301,27 @@ button {
         margin-top: 16%;
     }
 
+    .narration {
+        font-size: 16px;
+    }
+
     .character {
+        width: 44%;
         margin-top: -7%;
     }
 
+    .traders {
+        width: 55%;
+    }
+
     .storyBtn {
-        margin-top: 22%;
+        font-size: 20px;
+        margin-top: 5%;
     }
 
     .choiceBtn {
-        margin-top: 22%;
+        font-size: 15px;
+        margin-top: 5%;
     }
 
 
