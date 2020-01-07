@@ -222,7 +222,7 @@ button {
     .hero_text {
         margin-top: 6%;
         margin-left: 6%;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .story_plot {
@@ -284,7 +284,7 @@ button {
     .choiceBtn {
         margin-top: 5%;
         margin-left: -83%;
-        height: 45px;
+        height: 35px;
         width: 92%;
         font-size: 13px;
     }
