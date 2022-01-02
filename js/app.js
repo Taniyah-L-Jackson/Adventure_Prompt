@@ -40,6 +40,7 @@ var food = 0;
 var cattle = 0; 
 
 hero_box.style.visibility = 'hidden'; //hides box until random is summoned
+//Change hero artwork and story
 
 function storyline() {
 
@@ -541,9 +542,10 @@ function storyline() {
 }
 
 //random stats to give hero
-var food_amt = [150, 100, 50, 10];
-var coins_amt = [150, 100, 50, 10];
-var cattle_amt = [150, 100, 50, 10];
+//Add more numbers
+var food_amt = [150, 100, 50, 10, 5]; 
+var coins_amt = [150, 100, 50, 10, 5];
+var cattle_amt = [150, 100, 50, 10, 5];
 
 function random() {
 
