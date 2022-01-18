@@ -9,57 +9,50 @@
     <title>Build your own Adventure</title>
 </head>
 
-<body id="background">
+<!-- For ids, use an underscore for names. For classes, use camelCase -->
+<body>
 
-    <div class="container">
-
-        <div class="row hero_stats" id="hero_stats">
-
-            <div class="col-sm-12 hero_text">
-
-                <ul>Food:
-
-                    <li id="hero_food"></li>
-
-                </ul>
-
-                <ul>Cattle: 
-
-                    <li id="hero_cattle"></li>
-
-                </ul>
-
-                <ul>Coins:
-
-                    <li id="hero_coins"></li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div id="characterBox"></div>
-
-            <div class="col-sm-12 story_plot">
-                
-                <h1 class="narration" id="narrator"></h1>
-
-                <button class="storyBtn " id="storyButton"></button>
-
-                <button class="choiceBtn" id="choiceA" value="choiceA"></button>
-            
-                <button class="choiceBtn choiceB" id="choiceB" value="choiceB"></button>
-
-            </div>
-
-        </div>
-
+    <div class="container bgBox">
+        <div id="background"></div>
+        <h1 id='game_title'>A Casual Adventure</h1>
+        <button id='game_bab'>Let's Begin!</button>
     </div>
 
-    <script src="js/app.js"></script>
+    <div class="container heroStatsBox">
+        <div class="row heroStats" id="hero_stats">
+
+            <div class="col-sm-12 heroText">
+                <ul>
+                    <li><span id="hero_food"></span>Foods</li>
+                    <li><span id="hero_cattle"></span>Cattle</li>
+                    <li><span id="hero_coins"></span>Coins</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container storyBox" id='story_box'>
+        <div class="row storyPlot">
+
+            <!-- Removed characters to further develop -->
+            <!-- <div id="characterBox"></div> -->           
+
+            <div class="col-sm-12">
+                <h1 class="narration" id="narrator"></h1>
+                <button class="storyBtn" id="story_button"></button>
+            </div>
+
+            <div class="col-sm-6">
+                <button class="choiceBtn choiceA" id="choice_A" value="choice_A"></button>
+            </div>
+
+            <div class="col-sm-6">
+                <button class="choiceBtn choiceB" id="choice_B" value="choice_B"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app2.js"></script>
 
 </body>
 </html>

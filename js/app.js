@@ -312,7 +312,7 @@ function storyline() {
 
                 narrator.innerText = 'You explain to the farmer that you have less than that, and they smile sadly and nod. "That\'s fine, thanks for trying.", and they leave. This is a humbling moment for you, so you took the time to take care of what measly cattle you have, (if you have any). [END OF DAY TWO]' ;
 
-                story.innerText = 'Thanks for reminding me of how broke I am...'; //allows function to go to next scenario upon click
+                story.innerText = 'Thanks for reminding me how broke I am...'; //allows function to go to next scenario upon click
 
             } else {
 
@@ -337,7 +337,7 @@ function storyline() {
             
             narrator.innerText = 'The farmer starts yelling and spits at you. However, this farmer, doesn\'t know how short your temper is. You blink, and suddenly there\'s a dead farmer and blood on your hands. Not willing to go back to prison, you leave everything behind but the coins you have and head for the hills, never to be seen again. ["YOU KILLED SOMEBODY?!" END (4)]';   
 
-            story.innerText = 'Whoops! My bad, old habits. Need to restart that...'; 
+            story.innerText = 'Whoops...'; 
 
             adventure = 'stageTwoStart'; //Goes back to beginning of scenario
 
@@ -374,10 +374,10 @@ function storyline() {
         characterBox.classList.add('character');
         characterBox.classList.add('traders'); 
 
-        narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market. While there, two traders approch you, selling potions. One tells you that hers grants happiness. The other tells you that hers tastes like grapes and dead fish. You don\'t want either, but since they tell you that they are free samples, you decide to pick one. Which do you choose?';
+        narrator.innerText = 'Day 3: The third day is...you know the line. You head off towards the trade market. While there, two traders approach you, selling potions. One tells you that hers is lemon flavored. The other tells you that hers is mulberry flavored. Neither tell you how they could effect you (Because they like surprises of course). You don\'t want either, but since they tell you that they are FREE samples, you decided to pick one. But which?';
 
-        choiceA.innerText = 'Yellow! Need some of that for this story...';
-        choiceB.innerText = 'Purple! Why? ...no seriously, why?';
+        choiceA.innerText = 'Yellow! Some cool lemonade sounds good.';
+        choiceB.innerText = 'Purple! Mulberry sounds delicious!';
 
         return;
 
@@ -402,7 +402,7 @@ function storyline() {
             //BG track
             BG.classList.add('tombstone');
 
-            narrator.innerText = 'So, you won\'t believe this, but the guy with the yellow potion was lying! Crazy right? After drinking it,some crazy events begin to happen. Long story short, you died from poisoning by arsenic and...well...let\'s just say that yellow tint wasn\'t food coloring ok? ["Forbidden lemonade" END (5)]'; 
+            narrator.innerText = 'So, you won\'t believe this, but the gal with the yellow potion really did a number on you! So, after drinking her potion, some crazy events begin to happen. There was a goat, and some yodeling noises...long story short, you died from poisoning by arsenic and...well...let\'s just say that yellow tint wasn\'t from the lemons ok? ["Forbidden lemonade" END (5)]'; 
   
             story.innerText = '*Gurgling Noises*';
 
@@ -417,7 +417,7 @@ function storyline() {
             //BG track
             BG.classList.add('nighttime');
 
-            narrator.innerText = 'Turns out the flavor was really Blackberry. But you thanked the trader and went on your way, looking for a spot to start selling. The day was rough, but you managed to sell some items for 10 coins and even bought 50 cattle. As it began to get dark, you head home a bit richer. [Coins: +10] [END OF DAY THREE]';
+            narrator.innerText = 'Turns out the flavor was really Blackberry. But you thanked the trader and went on your way, looking for a spot to start selling. The day was rough, but you managed to sell some items for 10 coins and even bought 50 cattle. As it began to get dark, you head home a little bit richer. [Coins: +10] [END OF DAY THREE]';
             coins += 10; //add to coins
             cattle += 50; //add to cattle
             
@@ -452,7 +452,7 @@ function storyline() {
         characterBox.classList = '';
         characterBox.classList.add('character');
 
-        narrator.innerText = 'Day 4: {Insert line here}. You wake up and get ready for the day. As you\'re cooking breakfast, you hear a knock at the door. You remembered that you weren\'t expecting visitors for another three months. A wave of suspicion hits you like a semi. Should you open the door?';
+        narrator.innerText = 'Day 4: {Insert line here}. You wake up and get ready for the day. As you\'re cooking breakfast, you hear a knock at the door. You remembered that you weren\'t expecting visitors for another three months. A wave of suspicion hits you like a semi-truck. Should you open the door?';
 
         choiceA.innerText = 'I\'ll be there in a moment.';
         choiceB.innerText = 'Stranger danger! *Starts dialing 911*';
@@ -480,7 +480,7 @@ function storyline() {
             //Characters
             characterBox.classList.add('granny_happy');
 
-            narrator.innerText = 'Turns out it was just your granny coming to give you some homecooked meals. She heard that you were having a bit of a hard time from your mother, and stopped by to you help out. How kind. [Food: +100] [END OF DAY FOUR]';
+            narrator.innerText = 'Turns out it was just your granny coming to give you some homecooked meals. She heard from your mother that you were having a bit of a hard time, so she stopped by to you help out. How kind. [Food: +100] [END OF DAY FOUR]';
             food += 100; //granny came by with fiddles
 
             hero_coins.innerText = coins;
@@ -494,7 +494,7 @@ function storyline() {
             //Characters
             characterBox.classList.add('granny_angry');
 
-            narrator.innerText = 'The knocking persists and you start panicking. Suddenly, the door breaks off the hinges, and a masked old lady steps in. Pure rage was on her face, and she lunges at you with a baguette, continuously slapping you with it! As you lose consciousness, you think to yourself: "Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
+            narrator.innerText = 'The knocking persists and you start panicking. Suddenly, the door breaks off the hinges, and a masked old lady steps in. Pure rage was on her face, and she lunges at you with a baguette, continuously slapping you with it! As you lose consciousness, you stare at the lady one last time before whispering: "...Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
 
             story.innerText = 'Narrator speaking: Gonna open that door now, huh?';
             
@@ -525,7 +525,7 @@ function storyline() {
         //Characters
         characterBox.classList = '';
 
-        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Feel free to play again and/or give me feedback if you wish. Either way,thank you for your time and see you soon.'; 
+        narrator.innerText = 'Well, you\'ve reached the end of this story. more will be coming soon hopefully, whether an addition to this or a new game altogether. Feel free to play again and/or give me feedback if you wish. Either way, thank you for your time and see you soon.'; 
 
         story.innerText = 'Let\'s take it from the top!'; //Game resets when clicked
 

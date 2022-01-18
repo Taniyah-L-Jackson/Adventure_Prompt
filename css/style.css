@@ -7,20 +7,22 @@
 body {
     margin: 0px;
     padding: 0%;
+    /* height: 100vh; */
 }
 /* keeps the border with inner image on the page without side-scrolling */
 
 /* character setup */
-.character {
+/* Removed characters to further develop */
+/* .character {
     position: absolute;
     margin-top: 11%;
     margin-left: 40%;
     height: 452px;
     width: 500px;  
-}
+} */
 
 /* characters */
-.hero {
+/* .hero {
     background: url(../media/character_draft_introL.png);
 }
 
@@ -53,13 +55,14 @@ body {
 .granny_angry {
     height: 454px;
     background: url(../media/character-granny_attackL.png);
-}
+} */
 
 /* Backgrounds--------------------- */
 
 /* intro  */
 .intro{
     background: url(../media/rowan-heuvel-xYYBo69fvQE-unsplash.png);
+    height: 100vh;
 }
 
 /* Scene One  */
@@ -122,38 +125,73 @@ body {
 
 /* background setup*/
 
-.background {
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgBox {
+    margin: 0;
+    padding: 0;
+    width: 100vw; /*Fit the width of the window*/
 }
 
-/* For Storyline */
+/* For other BGs */
+
+.background {
+    position: relative; /*The background is relative so that the stat box stays within the 
+    container: bgBox */
+    height: 50vh;
+    background-size: cover;
+    /*Setting the height of the background 
+    to match the height of the view (window).
+    Only 70 is used here for the BG. The 
+    other 30 is used for the storybox*/
+}
+
+/* For intro BG */
+.introBG {
+    height: 100vh;
+}
+
+/* For Storyline Box*/
+
+.storyBox {
+    height: 30vh; /*The other 30% of the view. Used to tell the story*/
+    width: 100vw; /*Fit the width of the window*/
+    background: #ffa86a;
+    border: 30px inset #a34300;
+}
 
 .narration {
     margin: 22px 0px 0px;
-    font-size: 18px;
+    font-size: 20px;
+    text-align: center;
 }
 
 /* For Hero Stats */
 ul {
     margin: 0px;
     padding: 0px;
-    color: rgb(58, 17, 88);
+    color: rgb(0, 0, 0);
+    font-size: 40px;
 }
 
 li {
     list-style-type: none;
-    color: rgb(255, 214, 0);
+    color: rgb(0 0 0);
 }
 
-.hero_stats {
+span {
+    padding-right: 30px;
+    color: #9f0000;
+}
+
+
+.heroStats {
     position: absolute;
-    margin-top: 23%;
+    left: 1vw; /*making sure that the box's edge isn't out of view*/
+    bottom: 72vh; /*The box is absolute to the background itself,
+    and this 'pushes' the stat box up*/
     height: 250px;
-    width: 200px;
-    background: rgb(153, 33, 160);
-    border: 8px outset rgb(48, 3, 66);
+    width: 289px;
+    background: rgb(255 168 106);
+    border: 8px outset rgb(79 32 0);
 } 
 
 .hero_text {
@@ -161,49 +199,47 @@ li {
     font-size: 24px;
 }
 
-.story_plot {
-    position: relative;
-    margin-top: 50%;
-    height: 250px;
-    width: 100%;
-    background: rgb(27, 154, 131);
-    border: 10px ridge rgb(2, 115, 90);
-}
 
 /* For buttons */ 
 
 .storyBtn {
-    margin-top: 6%;
+    position: absolute;
+    margin-top: 3%;
     margin-left: 6%;
     height: 54px;
     width: 88%;
-    background: rgb(6, 193, 152);
-    border: 3px solid rgb(0, 76, 68);
-    border-radius: 20px;
+    background: rgb(79 32 0);
+    border: none;
+    border-radius: 50px;
     font-size: 25px;
+    z-index: 1;
 }
 
 .choiceBtn {
     position: absolute;
-    margin-top: 4%;
-    margin-left: -90%;
+    margin-top: 6%;
+    margin-left: 2%;
     height: 54px;
-    width: 45%;
-    background: rgb(6, 193, 152);
-    border: 3px solid rgb(0, 76, 68);
-    border-radius: 20px;
+    background: rgb(79 32 0);
+    border: none;
+    border-radius: 50px;
     font-size: 18px;
+    z-index: 2;
+}
+
+.choiceA {
+    width: 45vw;
 }
 
 .choiceB {
-    margin-left: -42%;
+    width: 45vw;
 }
 
 button {
-    color: black;
+    color: white;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
 
     .hero_stats {
         margin-top: 0%;
@@ -226,8 +262,11 @@ button {
     }
 
     .story_plot {
-        margin-top: 100%;
-        height: 250px;
+     position: absolute;
+    margin-top: 32.75%;
+    height: 300px;
+    width: 100%;
+    background: rgb(27, 154, 131);
     }
 
     .character {
@@ -325,7 +364,7 @@ button {
     }
 
 
-}
+} */
 
 
 
