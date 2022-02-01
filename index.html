@@ -11,35 +11,46 @@
 
 <!-- For ids, use an underscore for names. For classes, use camelCase -->
 <body>
-
-    <div class="container bgBox">
+    <!-- FIX!! Items are not in a container! -->
+    <div class="bgBox">
         <div id="background"></div>
+        <img class='img-responsive' id='character_box' src="" alt="girl in yellow and blue">
         <h1 id='game_title'>A Casual Adventure</h1>
-        <button id='game_bab'>Let's Begin!</button>
+        <button class="introBtn" id='intro_btn'>Let's Begin</button>
     </div>
 
-    <div class="container heroStatsBox">
-        <div class="row heroStats" id="hero_stats">
 
-            <div class="col-sm-12 heroText">
+<!-- containers heroStatsBox and storyBox will not show at the intro screen. 
+Their displays are set to none so that the intro screen doesnt have any white
+space -->
+    <div class="container">
+        <div class="row heroStats" style="display: none;" id="hero_stats">
+
+            <div class="col-sm-12">
                 <ul>
-                    <li><span id="hero_food"></span>Foods</li>
-                    <li><span id="hero_cattle"></span>Cattle</li>
-                    <li><span id="hero_coins"></span>Coins</li>
+                    <li>
+                        <div class='deathBar'></div> <!--A red bar-->
+                        <div id="health_bar" class="healthBar">
+                            <p class="healthText">Health</p> <!--Text on green bar-->
+                        </div> <!-- A green bar-->
+                    </li> <!--Added a health bar-->
+                    <!-- <li>
+                        <span id="hero_food"></span>Foods
+                    </li> -->
+                    <li>
+                        <span id="hero_coins"></span>Coins
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container storyBox" id='story_box'>
+    <div class="container storyBox" style="display: none;" id='story_box'>
         <div class="row storyPlot">
 
-            <!-- Removed characters to further develop -->
-            <!-- <div id="characterBox"></div> -->           
-
             <div class="col-sm-12">
-                <h1 class="narration" id="narrator"></h1>
-                <button class="storyBtn" id="story_button"></button>
+                <h2 class="narration" id="narrator"></h2>
+                <button class="storyBtn" id="progress_button"></button>
             </div>
 
             <div class="col-sm-6">

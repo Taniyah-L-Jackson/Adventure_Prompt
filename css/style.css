@@ -7,55 +7,19 @@
 body {
     margin: 0px;
     padding: 0%;
-    /* height: 100vh; */
 }
 /* keeps the border with inner image on the page without side-scrolling */
 
-/* character setup */
-/* Removed characters to further develop */
-/* .character {
-    position: absolute;
-    margin-top: 11%;
-    margin-left: 40%;
-    height: 452px;
-    width: 500px;  
-} */
-
 /* characters */
-/* .hero {
-    background: url(../media/character_draft_introL.png);
+/*Resizing issues*/
+.characters {
+    position: absolute;
+    right: 5vw;
+    bottom: 10vh;
+    height: 700px;
+    width: 300px;
+    z-index: -1;
 }
-
-.hero_happy {
-    background: url(../media/character_draft2_happyL.png);
-}
-
-.hero_angry {
-    background: url(../media/character_draft_upsetL.png);
-}
-
-.merchant {
-    height: 449px;
-    background: url(../media/character-merchantL.png);
-}
-
-.farmer {
-    background: url(../media/character-farmerL.png);
-}
-
-.traders {
-    background: url(../media/character-tradersL.png);
-}
-
-.granny_happy {
-    height: 454px;
-    background: url(../media/character-granny_normalL.png);
-}
-
-.granny_angry {
-    height: 454px;
-    background: url(../media/character-granny_attackL.png);
-} */
 
 /* Backgrounds--------------------- */
 
@@ -65,88 +29,97 @@ body {
     height: 100vh;
 }
 
-/* Scene One  */
+/* a black screen (used for fading)*/
+.blackScreen {
+    background-color: rgb(0, 0, 0);
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}
+
+/* Introduction  */
 .grassPath {
     background: url(../media/george-hiles-obQHIr61imY-unsplash.png);
 }
 
-.noodles {
-    background: url(../media/sheila-joy-ZAjcJ4BGJzQ-unsplash.png);    
-}
-
-.burningBarn {
-    background: url(../media/stephen-radford-hLUTRzcVkqg-unsplash.png);
-}
-
-/* Scene Two  */
-
+/* Scene One */
 .barn {
     background: url(../media/frances-gunn-QcBAZ7VREHQ-unsplash.png);
 }
 
-.farmlands {
-    background: url(../media/aleksandar-ristov-_6CvR8zY9Vc-unsplash.png); 
-}
-
-.blood {
-    background: url(../media/max-kleinen-2KrNjQaC1wQ-unsplash.png); 
-}
+/* Scene Two  */
 
 /* Scene Three */
 
-.market {
-    background: url(../media/anne-preble-SAPvKo12dQE-unsplash.png);
-}
-
 /* Scene Four */
-
-.bedroom {
-    background: url(../media/annie-spratt-YROO1hljsIM-unsplash.png);
-}
-
-.kitchen {
-    background: url(../media/annie-spratt-tJ8x4oCQ5jE-unsplash.png);
-}
-
-/* Creator lounge */
-.lounge {
-    background: url(../media/joshua-ness-Vo52cKzOxMY-unsplash.png);
-}
-
-/* For Nighttime  */
-.nighttime {
-    background: url(../media/vincentiu-solomon-ln5drpv_ImI-unsplash.png);
-}
-
-/* Death Scene */
-.tombstone {
-    background: url(../media/samuel-penn-WL9POcMy3cQ-unsplash.png);
-}
 
 /* background setup*/
 
+/* title screen BG */
 .bgBox {
     margin: 0;
     padding: 0;
     width: 100vw; /*Fit the width of the window*/
 }
 
-/* For other BGs */
-
+/* Scene BGs */
 .background {
     position: relative; /*The background is relative so that the stat box stays within the 
     container: bgBox */
-    height: 50vh;
+    height: 70vh;
     background-size: cover;
     /*Setting the height of the background 
     to match the height of the view (window).
     Only 70 is used here for the BG. The 
     other 30 is used for the storybox*/
+    z-index: -1;
 }
 
 /* For intro BG */
+
 .introBG {
     height: 100vh;
+}
+
+/* Game Title */
+h1 {
+    position: absolute;
+    bottom: 85vh;
+    left: 35vw;
+    font-size: 60px;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}
+
+/* Game Title Screen Button */
+.introBtn {
+    position: absolute;
+    bottom: 15vh;
+    left: 25vw;
+    height: 20vh;
+    width: 50vw;
+    background: rgb(124 52 0);
+    border: 20px groove rgb(79 32 0);
+    font-size: 40px;
+    color: white;
+    visibility: visible; /*display:none didnt work, so i tried this method*/
+    opacity: 1;
+    /* ADD THE BOTTOM STUFF LATER */
+    /* animation-name: fadeIn;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out; */
+}
+
+.introBtn:hover {
+    background: rgb(79 32 0);
+    border-color: rgb(124 52 0);
 }
 
 /* For Storyline Box*/
@@ -156,12 +129,14 @@ body {
     width: 100vw; /*Fit the width of the window*/
     background: #ffa86a;
     border: 30px inset #a34300;
+    z-index: 1;
 }
 
 .narration {
     margin: 22px 0px 0px;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
+    overflow: hidden;
 }
 
 /* For Hero Stats */
@@ -178,27 +153,45 @@ li {
 }
 
 span {
-    padding-right: 30px;
+    padding-right: 85px;
     color: #9f0000;
 }
-
 
 .heroStats {
     position: absolute;
     left: 1vw; /*making sure that the box's edge isn't out of view*/
-    bottom: 72vh; /*The box is absolute to the background itself,
+    bottom: 60vh; /*The box is absolute to the background itself,
     and this 'pushes' the stat box up*/
-    height: 250px;
+    height: 155px;
     width: 289px;
     background: rgb(255 168 106);
     border: 8px outset rgb(79 32 0);
+    z-index: 1;
 } 
 
-.hero_text {
-    margin: 20px 0px;
-    font-size: 24px;
+.healthBar {
+    position: relative;
+    margin-top: 10px;
+    padding-bottom: 60px;
+    width: 100%;
+    border-radius: 10px;
+    background: green;
 }
 
+.deathBar {
+    position: absolute;
+    height: 60px;
+    width: 89%;
+    background: red;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.healthText {
+    position: absolute;
+    padding-left: 50px;
+    line-height: 1.5;
+}
 
 /* For buttons */ 
 
@@ -206,13 +199,13 @@ span {
     position: absolute;
     margin-top: 3%;
     margin-left: 6%;
-    height: 54px;
-    width: 88%;
+    height: 7vh;
+    width: 82vw;
     background: rgb(79 32 0);
     border: none;
     border-radius: 50px;
     font-size: 25px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .choiceBtn {
@@ -239,134 +232,22 @@ button {
     color: white;
 }
 
-/* @media (max-width: 767px) {
+/* keyframes */
 
-    .hero_stats {
-        margin-top: 0%;
-        height: 88px;
-        width: 100%;
+/* For title screen */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+        visibility: visible; /*the button will only be clickable when visible*/
     }
-
-    ul {
-        display: inline;
-    }
-
-    li {
-        display: inline;
-    }
-
-    .hero_text {
-        margin-top: 6%;
-        margin-left: 6%;
-        font-size: 14px;
-    }
-
-    .story_plot {
-     position: absolute;
-    margin-top: 32.75%;
-    height: 300px;
-    width: 100%;
-    background: rgb(27, 154, 131);
-    }
-
-    .character {
-        margin-top: -10%;
-        margin-left: -20%;
-        height: 80%;
-        width: 110%;
-    }
-
-    .hero {
-        background: url(../media/character_draft_intro.png);
-    } 
-
-    .hero_happy {
-        background: url(../media/character_draft2_happy.png);
-    }
-
-    .hero_angry {
-        background: url(../media/character_draft_upset.png);
-    }
-    
-    .merchant {
-        background: url(../media/character-merchant.png);
-    }
-
-    .farmer {
-        background: url(../media/character-farmer.png);
-    }
-
-    .traders {
-        background: url(../media/character-traders.png);
-    }
-
-    .granny_happy {
-        background: url(../media/character-granny_normal.png);
-    }
-
-    .granny_angry {
-        background: url(../media/character-granny_attack.png);
-    }
-
-    .narration {
-        margin: 7px 0px 0px;
-        font-size: 12px;
-    }
-
-    .storyBtn {
-        margin-top: 10%;
-        margin-left: 3%;
-        height: 46px;
-        font-size: 15px;
-    }
-
-    .choiceBtn {
-        margin-top: 5%;
-        margin-left: -83%;
-        height: 35px;
-        width: 92%;
-        font-size: 13px;
-    }
-
-    .choiceB {
-        margin-top: 20%;
-    }
-    
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-
-    .hero_stats {
-        margin-top: 16%;
+/* For scenes */
+@keyframes sceneFade {
+    100% {
+        opacity: 1;
     }
-
-    .narration {
-        font-size: 16px;
-    }
-
-    .character {
-        width: 44%;
-        margin-top: -7%;
-    }
-
-    .traders {
-        width: 60%;
-    }
-
-    .storyBtn {
-        font-size: 20px;
-        margin-top: 5%;
-    }
-
-    .choiceBtn {
-        font-size: 15px;
-        margin-top: 5%;
-    }
-
-
-} */
-
-
+}
 
 /* Backgrounds: */
 /*George Hiles*/

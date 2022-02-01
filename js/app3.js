@@ -1,200 +1,167 @@
-export function storyline() {
-
-
-
-    //Narrator Intro
-    if (adventure == 'begin') { //starts function
-
-        adventure = 'start_roll';  //leads to next scenario
-
-        //Button track
-        story.style.visibility = 'hidden';
-        choice_A.style.visibility = 'visible';
-        choice_B.style.visibility = 'visible';
-
-        // BG track
-        BG.classList = '';
-        BG.classList.add('background');
-        BG.classList.add('grassPath');
-
-        //Characters
-        // characterBox.classList.add('character'); //for game restart
-        // characterBox.classList.add('hero');
-
-        narrator.innerText = 'Welcome young traveller! Are you ready to begin a new life journey?';
-
-        choice_A.innerText = 'Yes! I am filled with excitement!';
-        choice_B.innerText = 'Today? Nah, maybe later.';
-
-        return;
-
-    }
-     
-    //Choices of Narrator Intro
-    if (adventure == 'start_roll') {
-
-        //Button track
-        story.style.visibility = 'visible';
-        choice_A.style.visibility = 'hidden';
-        choice_B.style.visibility = 'hidden';
-
-        if (hero_choice == 'choice_A') {
-
-            adventure = 'items'; //leads to next scenario
-
-            narrator.innerText = 'Then let us begin! Click the "roll" button to see what items you start off with.';
-
-            story.innerText = 'Roll'; //leads to next scenario
-
-        } else if(hero_choice == 'choice_B') {
-
-            //Character
-            // characterBox.classList.remove('hero');
-
-            //BG track
-            BG.classList.remove('grassPath')
-            BG.classList.add('tombstone');
-            
-            narrator.innerText = 'Fast fowarding to your death then. There was no point to remember your name. No one came to the burial, not even the pallbearers. You died with no legacy and in a casket to rot, full of regret and sadness. ["Pointless" END (1)]'; 
-
-            story.innerText = 'Woah wait! Let me change my answer!';
-            adventure = 'begin'; //Goes back to start
-
-        }
-
-        return;
-
-    }
-
-    //Roll stats
-    if(adventure == 'items') {
-
-        adventure = 'stage_one_start'; //leads to next scenario
-
-        random(); //gives user a random amount of certain items to start off with
-    
-    }
-
-    //Beginning of Stage One
-    if (adventure == 'stage_one_start') {
-
-        adventure = 'stage_one';  //leads to next scenario
-
-        //Button track
-        story.style.visibility = 'hidden'; //add 'hide' class
-        choice_A.style.visibility = 'visible';
-        choice_B.style.visibility = 'visible';
-
-        //BG track
-        BG.classList = '';
-        BG.classList.add('background');
-        BG.classList.add('grassPath');
-
-        // //Characters
-        // characterBox.classList.remove('hero');
-        // characterBox.classList.add('merchant');
-
-        narrator.innerText = 'Day 1: The first day is always filled with promise,(unless you had a really bad roll). As you settle in to your new lifestyle, a merchant comes by and holds up a bag. He says that it has fruit in it. All you have to do is trade 50 coins. Do you accept?';
-
-        choice_A.innerText = 'Sure! Here is your pay, my good man.';
-        choice_B.innerText = 'No! I just started this adventure!';
-
-        return;
-
-    }
-
-    //Choices of Stage One
-    if (adventure == 'stage_one') {
-
-        adventure = 'stage_two_start'; //leads to next scenario
-
-        //Button Track
-        story.style.visibility = 'visible';
-        choice_A.style.visibility = 'hidden';
-        choice_B.style.visibility = 'hidden';
-
-        //Characters
-        // characterBox.classList.remove('merchant');
-
-        if (hero_choice == 'choice_A') {
-
-            //Merchant Food: 
-            merch_food = [50, 10, 0];
-
-            if (coins < 50) {
-
-                // BG track
-                BG.classList.remove('grassPath');
-                BG.classList.add('noodles');
-
-                narrator.innerText = ('You explain to the merchant that you\'re short on cash at the moment, but willing to trade for the fruit. The merchant frowns and says, "Hope you like noodles". Before you could ask what he meant by that, he continued on his way. As realization slowly seeps in, you race off towards your barn only to find...spaghetti noodles? [END OF DAY ONE]')
-
-                food += cattle //add cattle amount to food
-                cattle -= cattle //reduce cattle to 0
-
-            }else {
-
-                //What hero gets from merchant is randomized
-                var food_given = merch_food[Math.floor(Math.random() * merch_food.length)]; 
-
-                if(food_given > 0) {
-
-                    //Characters
-                    // characterBox.classList.add('hero_happy');
-
-                    narrator.innerText = ('The merchant thanks you for your purchase and speeds off. However, you begin to wonder if he was lying. Suspicion kicks in and you decide to check the bag. To your relief, it does have a few apples and grapes among other foods. [Food given: ' + food_given + '. Coins: -50] [END OF DAY ONE]');
-                    food += food_given; //add to food based on random merch food
-                    coins -= 50; //deduct from coins
-
-                    story.innerText = 'Woah. Ok, nice';
-
-                }else { //The merchant can cheat hero
-
-                    //Characters
-                    // characterBox.classList.add('hero_angry');
-
-                    narrator.innerText = ('The merchant thanks you for your purchase and speeds off. However, you begin to wonder if he was lying. Suspicion kicks in and you decide to check the bag. Sadly, to your disappointment, you\'ve been robbed. [Food given: ' + food_given + '. Coins: -50] [END OF DAY ONE]');
-                    food += food_given;
-                    coins -= 50;
-
-                    story.innerText = 'Fantastic...';
-                
-                }
-
-
-            }
-            
-        }else if(hero_choice == 'choice_B'){
-
-            //BG track
-            BG.classList.remove('grassPath');
-
-            if (cattle > 10) {
-
-                // BG track
-                BG.classList.add('burning_barn');    
-
-                narrator.innerText = 'The merchant went away hanging his head, and a sting of pity fills your heart. However, you continue with your day. As night approaches, you get ready for bed and wait for the next day. END OF DAY O-, hold up. You smell that? Is...is that...burnt wool? [Cattle -50] [END OF DAY ONE]';
-                cattle -= 50; //merchat "takes out" cattle           
-
-            }else if (cattle <= 10) { //doesn't take anything if hero is cattle-broke
-
-                // BG track
-                BG.classList.add('nighttime');  
-
-                narrator.innerText = 'The merchant went away hanging his head, and you couldn\'t help but feel a sting of pity. However, you continue with your day. As night comes along, you get ready for bed and patiently wait for the next morning. Later that night, the merchant comes by with a lighter and gasoline. As he checks your wares however, he sees why you couldn\'t pay anyway and leaves shaking their head. [END OF DAY ONE]'; 
-            }
-
-            story.innerText = 'Wait what?'; //allows function to go to next scenario upon click
-
-        }
-
-        hero_coins.innerText = coins;
-        hero_cattle.innerText = cattle;
-        hero_food.innerText = food;
-  
-        return;
-
-    } 
+//Copy of original app2.js
+// event.preventDefault();
+
+//Backgrounds
+var BG = document.getElementById('background');
+
+//StoryBox 
+var story_box = document.getElementById('story_box');
+
+//characters
+// Removed characterss to further develop
+var character_box = document.getElementById('characterBox');
+
+//starts the order of events
+var adventure = 'begin';
+
+//Box for hero stats
+var hero_box = document.getElementById('hero_stats');
+
+//Hero Stats
+var health_bar = document.getElementById('health_bar'); //Added a heatlh bar to game
+var hero_coins = document.getElementById('hero_coins');
+var hero_food = document.getElementById('hero_food');
+
+//buttons to press
+const intro_btn = document.getElementById('intro_btn'); //button that appears only at the intro screen
+const progress_btn = document.getElementById('progress_button'); //guides the story
+const choice_A = document.getElementById('choice_A'); //allows player to choose
+const choice_B = document.getElementById('choice_B'); //allows player to choose
+
+//Text displayed
+const game_title = document.getElementById('game_title');
+const narrator = document.getElementById('narrator');
+
+//--------------------------------------------------------------
+//event listeners for buttons //collects user data when clicked
+choice_A.addEventListener('click', choose); //triggers choices available
+choice_B.addEventListener('click', choose); //triggers choices available
+intro_btn.addEventListener('click', theBeginning); //triggers storyline
+
+//*the responses vary for left and right choices, so instead of 'yes' or 'no', just choose 'A' or 'B'*
+
+//required variables for function to work
+var hero_choice = ''; 
+var coins = 0;
+var food = 0;
+var cattle = 0; 
+
+//Title Screen
+
+//BG Track
+BG.classList.add('background'); //add BG settings
+BG.classList.add('intro'); //add the BG itself
+BG.classList.add('introBG'); //the Hero BG
+character_box.style.display = 'none'; //hide while title screen is on
+
+function theBeginning() {
+
+    //Game Title track
+    game_title.style.display = 'none'; //Remove title when the game begins
+
+    //Button track
+    intro_btn.style.display = 'none'; //Remove intro button when game begins
+    progress_btn.style.visibility = 'visible'; //does not show when choices appear
+    choice_A.style.visibility = 'hidden';  //does not show when storyline progresses
+    choice_B.style.visibility = 'hidden';  //does not show when storyline progresses   
+
+    // BG track (Add introduction BG)
+    BG.classList = '';
+    BG.classList.add('background');
+    BG.classList.add('grassPath');
+
+    //StoryBox
+    story_box.style.display = 'block'; //The box shows up here
+
+    //Characters
+    character_box.style.display = 'block'; //show the character
+    character_box.src = './media/ChaGB1.png'; //for game restart
+    character_box.classList.add('characters'); //all characters used will have the same setup
+
+    narrator.innerText = 'Just testing mechanics and whatnot. Press "Roll" please.';
+    progress_btn.innerText = 'Roll';
+
+    //replaces the intro btn to progress with the story
+    progress_btn.addEventListener('click', herostats);
 
 }
+
+//Explanation of the game
+
+var speech_of_Lucina = [
+    "Hello, my name in Lucina. nice to meet you!",
+    "I'll be here to guide you through the game.",
+    "To the left, you have a health bar, along with food and coins.",
+    "With the food, you can refuel your health. But you can only do so in certain secenarios.",
+    "With the coins, you can buy your way through the story. Buying food will be added later.",
+    "And lastly, the health bar. You'll need it to progress through the story.",
+    "Once your health reaches zero, the screen will go to black (this will also be added later).",
+    "That should wrap up a few of the new mechanics, stay tuned for more updates!"
+]
+
+var poses_of_Lucina = [
+    {image: "./media/ChaGB1.png"}, //regular stance
+    {image: "./media/ChaGBSmile.png"} //smiling
+]
+
+function storylineA() {
+    character_box.src = '';
+    //randomize poses of Lucina
+    let imageNum = (Math.floor(Math.random() * poses_of_Lucina.length));
+    character_box.src = poses_of_Lucina[imageNum].image;
+    narrator.innerText = speech_of_Lucina.shift();
+    if (speech_of_Lucina.length == 0) {
+        narrator.innerText = 'End of array'
+    }    
+}
+
+//random stats to give hero
+// var food_amt = 0;
+var coins_amt = 0;
+// var cattle_amt = 0;
+var health = 100; //Health will always start at 100
+
+function herostats() {
+
+    //add randomizer here. never be less than 10
+    // let food_amt = (Math.floor(Math.random() * 10)) * 10; 
+    let coins_amt = (Math.floor(Math.random() * 10)) * 10;
+    // let cattle_amt = (Math.floor(Math.random() * 10)) * 10;
+
+    // let food_counter = 0;
+    let coin_counter = 0;
+
+    //-----------------------------------------------------------------------------------
+    // setInterval(function ()  {
+    //     if(food_counter <= food_amt){
+    //         hero_food.innerText = food_counter++;
+    //         return food_counter;
+    //     }
+    // }, 50)
+
+    setInterval(function ()  {
+        if(coin_counter <= coins_amt){
+            hero_coins.innerText = coin_counter++;
+            return coin_counter;
+        }
+    }, 50)
+    
+    hero_box.style.display = 'block';
+    // Change the event listener of the progress bar
+    progress_btn.removeEventListener('click', herostats);
+    progress_btn.addEventListener('click', storylineA);
+
+    return coins_amt; //for use in-game
+}
+
+function choose() { //gets value of clicked button (choices only)
+
+    hero_choice = this.value; //'this' refers to 'choices'
+       
+}
+
+//NEXT: import js files into other js files with:
+    //import * as 'file_name' (importing all)
+    //import [function_name] as 'file_name' (importing )
+
+//export functions by adding 'export default' in front a function
