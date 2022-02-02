@@ -40,6 +40,7 @@ var food = 0;
 var cattle = 0; 
 
 hero_box.style.visibility = 'hidden'; //hides box until random is summoned
+//Change hero artwork and story
 
 function storyline() {
 
@@ -337,7 +338,11 @@ function storyline() {
             
             narrator.innerText = 'The farmer starts yelling and spits at you. However, this farmer, doesn\'t know how short your temper is. You blink, and suddenly there\'s a dead farmer and blood on your hands. Not willing to go back to prison, you leave everything behind but the coins you have and head for the hills, never to be seen again. ["YOU KILLED SOMEBODY?!" END (4)]';   
 
+<<<<<<< HEAD
             story.innerText = 'Whoops...'; 
+=======
+            story.innerText = 'Whoops! My bad, old habits...'; 
+>>>>>>> 286f18a399da2e21ab6840bf653f7429825ab887
 
             adventure = 'stageTwoStart'; //Goes back to beginning of scenario
 
@@ -402,7 +407,11 @@ function storyline() {
             //BG track
             BG.classList.add('tombstone');
 
+<<<<<<< HEAD
             narrator.innerText = 'So, you won\'t believe this, but the gal with the yellow potion really did a number on you! So, after drinking her potion, some crazy events begin to happen. There was a goat, and some yodeling noises...long story short, you died from poisoning by arsenic and...well...let\'s just say that yellow tint wasn\'t from the lemons ok? ["Forbidden lemonade" END (5)]'; 
+=======
+            narrator.innerText = 'So, you won\'t believe this, but the gal with the yellow potion was lying! Crazy right? After drinking it, some crazy events begin to happen. Long story short, you died from poisoning by arsenic and...well...let\'s just say that yellow tint wasn\'t exactly "food coloring" ok? ["Forbidden lemonade" END (5)]'; 
+>>>>>>> 286f18a399da2e21ab6840bf653f7429825ab887
   
             story.innerText = '*Gurgling Noises*';
 
@@ -417,7 +426,11 @@ function storyline() {
             //BG track
             BG.classList.add('nighttime');
 
+<<<<<<< HEAD
             narrator.innerText = 'Turns out the flavor was really Blackberry. But you thanked the trader and went on your way, looking for a spot to start selling. The day was rough, but you managed to sell some items for 10 coins and even bought 50 cattle. As it began to get dark, you head home a little bit richer. [Coins: +10] [END OF DAY THREE]';
+=======
+            narrator.innerText = 'Turns out the flavor was really Blackberry. But you thanked the trader and went on your way, looking for a spot to start selling. The day was rough, but you managed to sell some items for a few coins and even bought some cattle! As it began to get dark, you head home a bit richer. [COINS: +10. CATTLE: +50] [END OF DAY THREE]';
+>>>>>>> 286f18a399da2e21ab6840bf653f7429825ab887
             coins += 10; //add to coins
             cattle += 50; //add to cattle
             
@@ -494,7 +507,11 @@ function storyline() {
             //Characters
             characterBox.classList.add('granny_angry');
 
+<<<<<<< HEAD
             narrator.innerText = 'The knocking persists and you start panicking. Suddenly, the door breaks off the hinges, and a masked old lady steps in. Pure rage was on her face, and she lunges at you with a baguette, continuously slapping you with it! As you lose consciousness, you stare at the lady one last time before whispering: "...Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
+=======
+            narrator.innerText = 'The knocking persists and you start panicking. Suddenly, the door breaks off the hinges, and a masked old lady steps in. Pure rage was on her face, and she lunges at you with a baguette, continuously slapping you in the face with it! As you lose consciousness, you think to yourself: "Grandma?" before blacking out. ["Beaten by Granny\'s Baguette" END (6)]';
+>>>>>>> 286f18a399da2e21ab6840bf653f7429825ab887
 
             story.innerText = 'Narrator speaking: Gonna open that door now, huh?';
             
@@ -541,9 +558,10 @@ function storyline() {
 }
 
 //random stats to give hero
-var food_amt = [150, 100, 50, 10];
-var coins_amt = [150, 100, 50, 10];
-var cattle_amt = [150, 100, 50, 10];
+//Add more numbers
+var food_amt = [150, 100, 50, 10, 5]; 
+var coins_amt = [150, 100, 50, 10, 5];
+var cattle_amt = [150, 100, 50, 10, 5];
 
 function random() {
 
