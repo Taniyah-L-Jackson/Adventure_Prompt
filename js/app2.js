@@ -14,7 +14,7 @@ var character_box = document.getElementById('character_box');
 var adventure = 'begin';
 
 //Box for hero stats
-var hero_box = document.getElementById('hero_stats');
+var hero_stats = document.getElementById('hero_stats');
 
 //Hero Stats
 var health_bar = document.getElementById('health_bar'); //Added a heatlh bar to game
@@ -106,8 +106,12 @@ function theIntroduction() {
     narrator.innerText = narration[0]; 
     progress_btn.innerText = 'Roll';
 
-    //replaces the intro btn to progress with the story
+    //add the progress_btn to replace the intro btn (for progressing the story)
+    //also, give the progress_btn an event listener
+    
     progress_btn.addEventListener('click', letterSplitter);
+       
+    //NOTE: An 'if' statement does not seem to work to prevent duplicate event listeners
 
     //show the health bar once the text lines up with the scene narration. Again, hard-coded.
     if (narrator.innerText == sceneNarration[5]) {
@@ -120,11 +124,12 @@ function theIntroduction() {
         progress_btn.removeEventListener('click', letterSplitter);
         progress_btn.addEventListener('click', sceneOne)
     }
-
-
 }
 
 function sceneOne() {
+    if (!BG.classList.contains('background')) {
+        BG.classList.remove();
+    }
     BG.classList = ''; //BG resetter
     BG.classList.add('background');
     BG.classList.add('blackScreen')
@@ -192,31 +197,43 @@ function dayOne() {
 }
 
 //random stats to give hero
-var coins_amt = 0;
+var coinsAvailable = 0;
 var health = 100; //Health will always start at 100
 
 function heroStats() {
 
+    //display hero stats
+    hero_stats.style.display = 'block';
+
+    //remove function after execution
+    progress_btn.removeEventListener('click', heroStats);
+
     //Add randomizer here. Multiples of 10
-    let coins_amt = (Math.floor(Math.random() * 10)) * 10;
+    let coinsAvailable = (Math.floor(Math.random() * 10)) * 10;
 
     //Set coin counter to 0 at the start
     let coin_counter = 0;
 
-    //-----------------------------------------------------------------------------------
+    //add coins to counter in increments that will appear on the screen
     setInterval(function ()  {
-        if(coin_counter <= coins_amt){
+        if(coin_counter <= coinsAvailable){
             hero_coins.innerText = coin_counter++;
             return coin_counter;
         }
     }, 50)
     
-    hero_box.style.display = 'block';
-    // Change the event listener of the progress bar
-    progress_btn.removeEventListener('click', heroStats);
-    progress_btn.addEventListener('click', letterSplitter);
+    //disable the progress_btn for 5s
+    //also change the event listener of the progress bar
+    //the timer will use the randomized coinsAvailable var, the time the coin_counter var
+    //increments, and adds 10. This dynamically sets the time for the setTimeout and allows a small delay
+    //so that the setInterval function can finish running
+    setTimeout(() => {
+        progress_btn.ariaDisabled = 'true';
+        progress_btn.addEventListener('click', letterSplitter);
+    }, (coinsAvailable * 50) + 10);
 
-    return coins_amt; //for use in-game
+    return coinsAvailable;
+    //return the coin amount for use in game and continue with the dialog using the letterSplitter
 }
 
 function choose() { //gets value of clicked button (choices only)
@@ -233,10 +250,9 @@ function letterSplitter() {
 
     //remove the first textline after use
     narration.shift(); 
-    //remove the previous EventListener and reset event listener to the previous function 
+    //remove the previous EventListener
     //do this until the arr is empty
     progress_btn.removeEventListener('click', letterSplitter); 
-    progress_btn.addEventListener('click', storyFunction)
     //fire previous function so that the button doesnt need to be double-clicked
     return narration, storyFunction();
 
