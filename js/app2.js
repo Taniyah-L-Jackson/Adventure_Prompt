@@ -2,6 +2,7 @@
 
 //Backgrounds
 var BG = document.getElementById('background');
+var transititon = document.getElementById('transition');
 
 //StoryBox 
 var story_box = document.getElementById('story_box');
@@ -25,6 +26,7 @@ const intro_btn = document.getElementById('intro_btn'); //button that appears on
 const progress_btn = document.getElementById('progress_button'); //guides the story
 const choice_A = document.getElementById('choice_A'); //allows player to choose
 const choice_B = document.getElementById('choice_B'); //allows player to choose
+const transitionBtn = document.getElementById('transition_button'); //button only shown during transition
 
 //Text displayed
 const game_title = document.getElementById('game_title');
@@ -45,9 +47,7 @@ var coins = 0;
 //Title Screen
 
 //BG Track
-BG.classList.add('background'); //add BG settings
 BG.classList.add('intro'); //add the BG itself
-BG.classList.add('introBG'); //the Hero BG
 character_box.style.display = 'none'; //hide while title screen is on
 
 //---------------------------------------------------
@@ -58,6 +58,11 @@ var narration = '';     //contains all the lines that will be used for the game 
 var buttonText = '';    //contains all the lines that will be used for this part of the game (from the player's perspective)
 var storyFunction = ''; //holds the current scenario function
 function theIntroduction() {
+
+    //change the BG's height to accomodate for the storyBox
+    if (BG.style.height != '70vh') {
+        BG.style.height = '70vh';
+    }
 
     //store current function into a variable (for letterSplitter)
     storyFunction = theIntroduction;
@@ -83,7 +88,8 @@ function theIntroduction() {
     };
 
     //Game Title track
-    game_title.style.display = 'none'; //Remove title when the game begins
+    game_title.style.display = 'none'; 
+    //Remove title when the game begins, show only for title and transition
 
     //Button track
     intro_btn.style.display = 'none'; //Remove intro button when game begins
@@ -93,7 +99,6 @@ function theIntroduction() {
 
     // BG track (Add introduction BG)
     BG.classList = ''; //this resets classLists
-    BG.classList.add('background');
     BG.classList.add('grassPath');
 
     //StoryBox
@@ -122,17 +127,26 @@ function theIntroduction() {
     //when the last text line is used, fire the next function for the story
     if (narration.length == 1) {
         progress_btn.removeEventListener('click', letterSplitter);
-        progress_btn.addEventListener('click', sceneOne)
+        progress_btn.addEventListener('click', transitionFunction)
     }
 }
 
-function sceneOne() {
-    if (!BG.classList.contains('background')) {
-        BG.classList.remove();
-    }
-    BG.classList = ''; //BG resetter
-    BG.classList.add('background');
-    BG.classList.add('blackScreen')
+function transitionFunction() {
+
+    //transition setup
+    transititon.style.display = 'block';
+    transititon.classList.add('transitionStyle');
+    //add text to the transition that tells days of travel
+
+    //Game Title (used for transition as well)
+    game_title.classList.remove('gameTitleIntro');
+    game_title.classList.add('titleTransition');
+    game_title.style.display = 'block';
+    game_title.innerText = 'Days of travel: 1';
+
+    //Transition button leads to next scene
+    transitionBtn.addEventListener('click', dayOne)
+
 }
 
 function dayOne() {
@@ -208,8 +222,8 @@ function heroStats() {
     //remove function after execution
     progress_btn.removeEventListener('click', heroStats);
 
-    //Add randomizer here. Multiples of 10
-    let coinsAvailable = (Math.floor(Math.random() * 10)) * 10;
+    //Add randomizer here. Range of mumbers
+    let coinsAvailable = (Math.floor(Math.random() * (300 - 100 + 1)));
 
     //Set coin counter to 0 at the start
     let coin_counter = 0;
@@ -225,12 +239,12 @@ function heroStats() {
     //disable the progress_btn for 5s
     //also change the event listener of the progress bar
     //the timer will use the randomized coinsAvailable var, the time the coin_counter var
-    //increments, and adds 10. This dynamically sets the time for the setTimeout and allows a small delay
+    //increments, and adds 850ms. This dynamically sets the time for the setTimeout and allows a small delay
     //so that the setInterval function can finish running
     setTimeout(() => {
         progress_btn.ariaDisabled = 'true';
         progress_btn.addEventListener('click', letterSplitter);
-    }, (coinsAvailable * 50) + 10);
+    }, (coinsAvailable * 50) + 850);
 
     return coinsAvailable;
     //return the coin amount for use in game and continue with the dialog using the letterSplitter

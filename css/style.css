@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     font-family: monospace;
-    color: rgb(255, 255, 255); 
 }
 
 body {
@@ -21,22 +20,24 @@ body {
     z-index: -1;
 }
 
-/* Backgrounds--------------------- */
+/*BACKGROUNDS*/
+/* ---------------------------------------------------------------------- */
+/* Scene BGs */
+#background {
+    position: relative; /*The background is relative so that the stat box stays within the 
+    container: bgBox */
+    height: 100vh;
+    background-size: cover;
+    /*Setting the height of the background 
+    to match the height of the view (window).
+    Only 70 is used here for the BG. The 
+    other 30 is used for the storybox*/
+    z-index: -1;
+}
 
 /* intro  */
 .intro{
     background: url(../media/rowan-heuvel-xYYBo69fvQE-unsplash.png);
-    height: 100vh;
-}
-
-/* a black screen (used for fading)*/
-.blackScreen {
-    background-color: rgb(0, 0, 0);
-    animation-name: fadeIn;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    opacity: 0;
 }
 
 /* Introduction  */
@@ -48,14 +49,10 @@ body {
 .barn {
     background: url(../media/frances-gunn-QcBAZ7VREHQ-unsplash.png);
 }
+/* ---------------------------------------------------------------------- */
 
-/* Scene Two  */
-
-/* Scene Three */
-
-/* Scene Four */
-
-/* background setup*/
+/* INTRO SCREEN */
+/* ------------------------------------------------------------------------------ */
 
 /* title screen BG */
 .bgBox {
@@ -64,27 +61,8 @@ body {
     width: 100vw; /*Fit the width of the window*/
 }
 
-/* Scene BGs */
-.background {
-    position: relative; /*The background is relative so that the stat box stays within the 
-    container: bgBox */
-    height: 70vh;
-    background-size: cover;
-    /*Setting the height of the background 
-    to match the height of the view (window).
-    Only 70 is used here for the BG. The 
-    other 30 is used for the storybox*/
-    z-index: -1;
-}
-
-/* For intro BG */
-
-.introBG {
-    height: 100vh;
-}
-
 /* Game Title */
-h1 {
+.gameTitleIntro {
     position: absolute;
     bottom: 85vh;
     left: 35vw;
@@ -94,6 +72,7 @@ h1 {
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     opacity: 0;
+    z-index: 1;
 }
 
 /* Game Title Screen Button */
@@ -121,8 +100,10 @@ h1 {
     background: rgb(79 32 0);
     border-color: rgb(124 52 0);
 }
+/* ------------------------------------------------------------------------------ */
 
-/* For Storyline Box*/
+/* FOR STORYLINE BOX*/
+/* ------------------------------------------------------------------------------ */
 
 .storyBox {
     height: 30vh; /*The other 30% of the view. Used to tell the story*/
@@ -131,15 +112,18 @@ h1 {
     border: 30px inset #a34300;
     z-index: 1;
 }
+/* ------------------------------------------------------------------------------ */
 
+/* NARRATION */
 .narration {
     margin: 22px 0px 0px;
     font-size: 25px;
     text-align: center;
-    overflow: hidden;
+    color: black;
 }
+/* ------------------------------------------------------------------------------ */
 
-/* For Hero Stats */
+/*HERO STATS */
 ul {
     margin: 0px;
     padding: 0px;
@@ -153,7 +137,7 @@ li {
 }
 
 span {
-    padding-right: 85px;
+    padding-right: 35px;
     color: #9f0000;
 }
 
@@ -176,6 +160,7 @@ span {
     width: 100%;
     border-radius: 10px;
     background: green;
+    color: white;
 }
 
 .deathBar {
@@ -192,9 +177,10 @@ span {
     padding-left: 50px;
     line-height: 1.5;
 }
+/* ------------------------------------------------------------------------------ */
 
-/* For buttons */ 
-
+/* STORY PROGRESSION, AND CHOICE BUTTONS */ 
+/* ------------------------------------------------------------------------------ */
 .storyBtn {
     position: absolute;
     margin-top: 3%;
@@ -205,7 +191,7 @@ span {
     border: none;
     border-radius: 50px;
     font-size: 25px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .choiceBtn {
@@ -217,7 +203,7 @@ span {
     border: none;
     border-radius: 50px;
     font-size: 18px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .choiceA {
@@ -232,7 +218,71 @@ button {
     color: white;
 }
 
-/* keyframes */
+/* TRANSITIONS */
+/* ---------------------------------------------------------------------- */
+
+/* a transition (used for fading)*/
+.transitionStyle {
+    position: absolute;
+    top: 0vh;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    animation-name: sceneFade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* For the transition title */
+.titleTransition {
+    position: absolute;
+    bottom: 47vh;
+    left: 32vw;
+    font-size: 75px;
+    color: white;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 3s;
+    opacity: 0;
+    z-index: 3;
+}
+
+/* transition button */
+.transitionButton {
+    position: absolute;
+    left: 71vw;
+    top: 33vh;
+    height: 13vh;
+    width: 6vw;
+    /* border-radius: 50%; */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 190px;
+    animation-name: pop;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    visibility: hidden;
+}
+
+.transitionButton:hover {
+    text-shadow: -3px 10px 17px #00952e;
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------ */
+
+/* KEYFRAMES */
+/* ------------------------------------------------------------------------------ */
 
 /* For title screen */
 @keyframes fadeIn {
@@ -245,9 +295,17 @@ button {
 /* For scenes */
 @keyframes sceneFade {
     100% {
+        background-color: rgb(0, 0, 0);
         opacity: 1;
     }
 }
+
+@keyframes pop {
+    100% {
+        visibility: visible;
+    }
+}
+/* ------------------------------------------------------------------------------ */
 
 /* Backgrounds: */
 /*George Hiles*/

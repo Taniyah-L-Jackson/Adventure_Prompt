@@ -15,10 +15,14 @@
     <div class="bgBox">
         <div id="background"></div>
         <img class='img-responsive' id='character_box' src="" alt="girl in yellow and blue">
-        <h1 id='game_title'>A Casual Adventure</h1>
+        <h1 id='game_title' class="gameTitleIntro">A Casual Adventure</h1>
         <button class="introBtn" id='intro_btn'>Let's Begin</button>
     </div>
 
+    <!-- Transititon box for scene changes -->
+    <div id='transition' class="transitionStyle" style="display: none;">
+        <button id="transition_button" class="transitionButton">></button>
+    </div>
 
 <!-- containers heroStatsBox and storyBox will not show at the intro screen. 
 Their displays are set to none so that the intro screen doesnt have any white
