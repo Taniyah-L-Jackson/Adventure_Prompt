@@ -35,8 +35,8 @@ body {
     z-index: -1;
 }
 
-/* intro  */
-.intro{
+/* Title Screen  */
+.titleScreen{
     background: url(../media/rowan-heuvel-xYYBo69fvQE-unsplash.png);
 }
 
@@ -51,7 +51,7 @@ body {
 }
 /* ---------------------------------------------------------------------- */
 
-/* INTRO SCREEN */
+/* TITLE SCREEN */
 /* ------------------------------------------------------------------------------ */
 
 /* title screen BG */
@@ -76,7 +76,7 @@ body {
 }
 
 /* Game Title Screen Button */
-.introBtn {
+.titleBtn {
     position: absolute;
     bottom: 15vh;
     left: 25vw;
@@ -96,7 +96,7 @@ body {
     animation-timing-function: ease-in-out; */
 }
 
-.introBtn:hover {
+.titleBtn:hover {
     background: rgb(79 32 0);
     border-color: rgb(124 52 0);
 }
@@ -133,7 +133,7 @@ ul {
 
 li {
     list-style-type: none;
-    color: rgb(0 0 0);
+    color: rgb(0, 0, 0);
 }
 
 span {
@@ -259,14 +259,13 @@ button {
     top: 33vh;
     height: 13vh;
     width: 6vw;
-    /* border-radius: 50%; */
     background: none;
     border: none;
     color: white;
     font-size: 190px;
     animation-name: pop;
     animation-duration: 1s;
-    animation-delay: 2s;
+    animation-delay: 6s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     visibility: hidden;

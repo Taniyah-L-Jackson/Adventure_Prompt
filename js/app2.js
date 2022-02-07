@@ -22,7 +22,7 @@ var health_bar = document.getElementById('health_bar'); //Added a heatlh bar to 
 var hero_coins = document.getElementById('hero_coins');
 
 //buttons to press
-const intro_btn = document.getElementById('intro_btn'); //button that appears only at the intro screen
+const title_btn = document.getElementById('title_btn'); //button that appears only at the title screen
 const progress_btn = document.getElementById('progress_button'); //guides the story
 const choice_A = document.getElementById('choice_A'); //allows player to choose
 const choice_B = document.getElementById('choice_B'); //allows player to choose
@@ -36,7 +36,7 @@ const narrator = document.getElementById('narrator');
 //event listeners for buttons //collects user data when clicked
 choice_A.addEventListener('click', choose); //triggers choices available
 choice_B.addEventListener('click', choose); //triggers choices available
-intro_btn.addEventListener('click', theIntroduction); //triggers storyline
+title_btn.addEventListener('click', theIntroduction); //triggers storyline
 
 //*the responses vary for left and right choices, so instead of 'yes' or 'no', just choose 'A' or 'B'*
 
@@ -47,7 +47,7 @@ var coins = 0;
 //Title Screen
 
 //BG Track
-BG.classList.add('intro'); //add the BG itself
+BG.classList.add('titleScreen'); //add the BG title screen (BG's are added as classes)
 character_box.style.display = 'none'; //hide while title screen is on
 
 //---------------------------------------------------
@@ -55,6 +55,7 @@ character_box.style.display = 'none'; //hide while title screen is on
 //---------------------------------------------------
 //args for the letterSplitter
 var narration = '';     //contains all the lines that will be used for the game (from the narrator's perspective)
+var user = '';
 var buttonText = '';    //contains all the lines that will be used for this part of the game (from the player's perspective)
 var storyFunction = ''; //holds the current scenario function
 function theIntroduction() {
@@ -68,7 +69,9 @@ function theIntroduction() {
     storyFunction = theIntroduction;
 
     //current scene's script
-    let sceneNarration = [
+    let sceneNarration = {
+
+        narrator = [
         "Testing, one, two",
         "Ah, Hello!",
         "Welcome to the second version of this game 'A Casual Adventure'",
@@ -79,12 +82,28 @@ function theIntroduction() {
         "Also, you start off with a few coins, useful for buying your way through the game",
         "The button you are currently clicking on will display choices every now and then",
         "What you decide will determine your progression through the game",
-        "And that's about it. Let us begin this unfamilar tale..."
-    ];
+        "Really! And that's about it. Let us begin this unfamilar tale..."
+        ],
 
-    //if the narration var is clear, add script arr
+        user = [
+            "???",
+            "...Hey?",
+            "Oh, nice",
+            "Oooo",
+            "Can't wait",
+            "This 'Roll' button here?",
+            "Wow, that IS new",
+            "Ah, ok",
+            "That explains this button then",
+            "Really?",
+            "Well alright then!"
+        ]
+
+    };
+
+    //if the narration var is clear, add script arr (the narrator one)
     if (narration == '') {
-        narration = sceneNarration;
+        narration = sceneNarration.narrator;
     };
 
     //Game Title track
@@ -92,7 +111,7 @@ function theIntroduction() {
     //Remove title when the game begins, show only for title and transition
 
     //Button track
-    intro_btn.style.display = 'none'; //Remove intro button when game begins
+    title_btn.style.display = 'none'; //Remove title button when game begins
     progress_btn.style.visibility = 'visible'; //does not show when choices appear
     choice_A.style.visibility = 'hidden';  //does not show when storyline progresses
     choice_B.style.visibility = 'hidden';  //does not show when storyline progresses   
@@ -107,13 +126,13 @@ function theIntroduction() {
     //Character Setup
     character_box.classList.add('characters'); //all characters used will have the same setup
 
-    //hard coded to show only the first index of the narration arr
+    //Dialouge
+    //hard coded to show always the first index of the narration arr
     narrator.innerText = narration[0]; 
     progress_btn.innerText = 'Roll';
 
     //add the progress_btn to replace the intro btn (for progressing the story)
-    //also, give the progress_btn an event listener
-    
+    //also, give the progress_btn an event listener 
     progress_btn.addEventListener('click', letterSplitter);
        
     //NOTE: An 'if' statement does not seem to work to prevent duplicate event listeners
@@ -127,7 +146,8 @@ function theIntroduction() {
     //when the last text line is used, fire the next function for the story
     if (narration.length == 1) {
         progress_btn.removeEventListener('click', letterSplitter);
-        progress_btn.addEventListener('click', transitionFunction)
+        progress_btn.addEventListener('click', transitionFunction);
+        storyFunction = dayOne;
     }
 }
 
@@ -145,7 +165,7 @@ function transitionFunction() {
     game_title.innerText = 'Days of travel: 1';
 
     //Transition button leads to next scene
-    transitionBtn.addEventListener('click', dayOne)
+    transitionBtn.addEventListener('click', storyFunction)
 
 }
 
@@ -156,8 +176,16 @@ function dayOne() {
 
     //current scene's script
     let sceneNarration = [
-        "",
+        "Good morning! This is your daily inner narrator here to guide you through the day.",
+        "I see some of your things got lost in the move, but we can always find more items at the market nearby",
+        "Now let's see....where do we go from here....?",
+        "Well, we could try-",
+        "Hello! How are you today?",
+
+
     ];
+
+    
 
     //if the narration var is clear, add script arr
     if (narration == '') {
@@ -168,7 +196,7 @@ function dayOne() {
     game_title.style.display = 'none'; //Remove title when the game begins
 
     //Button track
-    intro_btn.style.display = 'none'; //Remove intro button when game begins
+    title_btn.style.display = 'none'; //Remove intro button when game begins
     progress_btn.style.visibility = 'visible'; //does not show when choices appear
     choice_A.style.visibility = 'hidden';  //does not show when storyline progresses
     choice_B.style.visibility = 'hidden';  //does not show when storyline progresses   
@@ -176,23 +204,15 @@ function dayOne() {
     // BG track (Add introduction BG)
     BG.classList = '';
     BG.classList.add('background');
-    BG.classList.add('grassPath');
+    BG.classList.add('barn');
 
     //StoryBox
     story_box.style.display = 'block'; //The box shows up here
 
     //Character Setup
+    character_box.style.display = 'block';
+    character_box.src = './media/ChaGB1.png'; //for game restart
     character_box.classList.add('characters'); //all characters used will have the same setup
-
-    //Narration
-    // if (narration.length == 0) {
-    //     narrator.innerText = 'End of array'
-    // } 
-    
-
-    //what i want to do:
-    //store the current script into a narration var
-    //once the narration var is empty, call new function
 
     //hard coded to show only the first index of the narration arr
     narrator.innerText = narration[0]; 
@@ -206,7 +226,6 @@ function dayOne() {
         progress_btn.removeEventListener('click', letterSplitter);
         progress_btn.addEventListener('click', dayOne)
     }
-
 
 }
 
@@ -291,10 +310,3 @@ function letterSplitter() {
     // }, 5000);
     // return split_arr
 }
-
-
-//NEXT: import js files into other js files with:
-    //import * as 'file_name' (importing all)
-    //import [function_name] as 'file_name' (importing )
-
-//export functions by adding 'export default' in front a function
