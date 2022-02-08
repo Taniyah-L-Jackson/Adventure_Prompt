@@ -1,5 +1,5 @@
 // event.preventDefault();
-
+//Change to react file
 //Backgrounds
 var BG = document.getElementById('background');
 var transititon = document.getElementById('transition');
