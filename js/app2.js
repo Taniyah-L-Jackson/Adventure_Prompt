@@ -55,7 +55,6 @@ character_box.style.display = 'none'; //hide while title screen is on
 //---------------------------------------------------
 //args for the letterSplitter
 var narration = '';     //contains all the lines that will be used for the game (from the narrator's perspective)
-var user = '';
 var buttonText = '';    //contains all the lines that will be used for this part of the game (from the player's perspective)
 var storyFunction = ''; //holds the current scenario function
 function theIntroduction() {
@@ -71,7 +70,7 @@ function theIntroduction() {
     //current scene's script
     let sceneNarration = {
 
-        narrator = [
+        narrator: [
         "Testing, one, two",
         "Ah, Hello!",
         "Welcome to the second version of this game 'A Casual Adventure'",
@@ -85,7 +84,7 @@ function theIntroduction() {
         "Really! And that's about it. Let us begin this unfamilar tale..."
         ],
 
-        user = [
+        user: [
             "???",
             "...Hey?",
             "Oh, nice",
@@ -101,9 +100,10 @@ function theIntroduction() {
 
     };
 
-    //if the narration var is clear, add script arr (the narrator one)
+    //if the narration var is clear, add script arrs
     if (narration == '') {
         narration = sceneNarration.narrator;
+        buttonText = sceneNarration.user;
     };
 
     //Game Title track
@@ -127,9 +127,9 @@ function theIntroduction() {
     character_box.classList.add('characters'); //all characters used will have the same setup
 
     //Dialouge
-    //hard coded to show always the first index of the narration arr
+    //hard coded to show always the first index of the narration and user arr
     narrator.innerText = narration[0]; 
-    progress_btn.innerText = 'Roll';
+    progress_btn.innerText = buttonText[0];
 
     //add the progress_btn to replace the intro btn (for progressing the story)
     //also, give the progress_btn an event listener 
@@ -138,7 +138,7 @@ function theIntroduction() {
     //NOTE: An 'if' statement does not seem to work to prevent duplicate event listeners
 
     //show the health bar once the text lines up with the scene narration. Again, hard-coded.
-    if (narrator.innerText == sceneNarration[5]) {
+    if (narrator.innerText == sceneNarration.narrator[5]) {
         progress_btn.removeEventListener('click', letterSplitter);
         progress_btn.addEventListener('click', heroStats)
     }
@@ -283,11 +283,12 @@ function letterSplitter() {
 
     //remove the first textline after use
     narration.shift(); 
+    buttonText.shift();
     //remove the previous EventListener
     //do this until the arr is empty
     progress_btn.removeEventListener('click', letterSplitter); 
     //fire previous function so that the button doesnt need to be double-clicked
-    return narration, storyFunction();
+    return narration, buttonText, storyFunction();
 
     // let splitted = []; //stores the splitted arr
     // for (let i = 0; i < arr.length; i++) {
