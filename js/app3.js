@@ -125,7 +125,7 @@ function herostats() {
 
     //add randomizer here. never be less than 10
     // let food_amt = (Math.floor(Math.random() * 10)) * 10; 
-    let coins_amt = (Math.floor(Math.random() * 10)) * 10;
+    let coins_amt = (Math.floor(Math.random() * 100)) * 10;
     // let cattle_amt = (Math.floor(Math.random() * 10)) * 10;
 
     // let food_counter = 0;
